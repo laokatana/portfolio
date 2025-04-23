@@ -48,7 +48,7 @@ const SectionHome = styled.section`
 `;
 
 const Title = styled.p`
-  font-size: 3rem;
+  font-size: 2rem;
   font-weight: bold;
   color: rgba(201, 185, 42, 0.91);
   text-align: center;
@@ -56,11 +56,11 @@ const Title = styled.p`
   margin: 0.5rem 0;
 
   @media (min-width: 768px) {
-    font-size: 4rem;
+    font-size: 2rem;
   }
 
   @media (min-width: 1024px) {
-    font-size: 5rem;
+    font-size: 4rem;
   }
 `;
 

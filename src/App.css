@@ -1,46 +1,18 @@
-
-
 * {
   font-family: "DotGothic16", sans-serif;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  
 }
 
-
-  
-
-/* .menu-item {
-  @apply lg:hover:text-xl
-         hover:cursor-pointer
-         mb:hover:text-base
-         transition-all text-yellow-300 hover:text-yellow-500;
-} */
-
-
-
-/* .navbarStyle {
-  @apply flex justify-around w-full h-16 items-center mb:text-sm lg:text-lg  bg-transparent fixed z-10;
-}
- */
 .scrolling {
   background-color: transparent (131, 124, 124);
   transition: all 0.5s ease;
 }
 
-/*This is the text shadow and the container shadow */
-
-
-/* .sombra-navbar {
-  text-shadow: 5px 5px 8px #da2323;
-} */
-
 .about-opacity {
   box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.3);
 }
-
-
 
 .footer-background {
   background-image: url("../src/assets/footer4.gif");
@@ -77,11 +49,7 @@
   text-shadow: 2px 2px 8px #e60e0e;
 }
 
-/* .animacion2 {
-  animation: transformando 3s infinite;
-  width: auto;
-  padding: 9px;
-} */
+
 
 .animacion3 {
   animation: mezcladito2 4s infinite;
@@ -232,7 +200,5 @@
     text-shadow: 2px 2px 8px #ff0000;
   }
 }
-
-/*  media queries responsive */
 
 
