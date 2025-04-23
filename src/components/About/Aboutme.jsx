@@ -8,9 +8,7 @@ const AboutContainer = styled.div`
   align-items: center;
   text-align: center;
   padding: 12px;
-
-  /* Si querés un fondo o transparencia acá podés agregar: 
-     background: rgba(0, 0, 0, 0.5); o background-color: #fff; etc. */
+  background: rgba(0, 0, 0, 0.5); o background-color: #fff; etc. */
 `;
 
 // Título principal
