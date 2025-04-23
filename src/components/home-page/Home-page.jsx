@@ -1,7 +1,7 @@
 import React from "react";
 import styled, { keyframes } from "styled-components";
 
-// 🔁 Animación que estabas usando como "animacion2"
+
 const transformando = keyframes`
   0%, 100% {
     opacity: 0.8;
@@ -30,25 +30,21 @@ const ContainerHome = styled.div`
   width: 100%;
   background-image: url("/src/assets/sobremi.gif");
   background-size: cover;
-  background-position:center center;
+  background-position: center bottom;
   background-repeat: no-repeat;
-  background-attachment: scroll;
-  
+  background-attachment: fixed;
+  background-color: contain;
 
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-
-  border: 2px solid red;
-  border-top-color: red;
-  border-right-color: green;
-  border-bottom-color: blue;
-  border-left-color: orange;
 `;
 
 const SectionHome = styled.section`
   width: 100%;
+  margin: 0 auto;
+  margin-top: 5rem;
 `;
 
 const Title = styled.p`
@@ -58,7 +54,6 @@ const Title = styled.p`
   text-align: center;
   text-shadow: 3px 3px 3px #da2323;
   margin: 0.5rem 0;
-  
 
   @media (min-width: 768px) {
     font-size: 4rem;
@@ -82,6 +77,16 @@ const TextHome = styled.p`
   @media (min-width: 1280px) {
     margin-top: 6rem;
   }
+`;
+
+const MarcaOculta = styled.div`
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 80px;
+  height: 30px;
+  background-color: black; // o el color que se camufle mejor
+  z-index: 2;
 `;
 
 const Developer = () => {
