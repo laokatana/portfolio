@@ -4,6 +4,8 @@ import { useState, useEffect } from "react";
 
 /*
   optimizar y arreglar la funcionalidad de autoscroll 
+  1 hacer un hook donde que permita hacer dicha funcionalidad para asi tener el codigo mas
+  refactorizado posible, 
   trabajar lo responsive
 
 */

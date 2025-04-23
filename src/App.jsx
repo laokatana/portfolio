@@ -1,11 +1,7 @@
 import "./App.css";
-import About from "./components/About-me";
-import Navbar from "./components/Navbar";
-import HomePage from "./components/Home-page";
-import Slider from "./components/Slider";
-import Proyects from "./components/InfoProyects";
-import Footer from "./components/Footer";
+
 import Loader from "./components/Loader";
+import HomePage from "./components/home-page/Home-page";
 import { useState, useEffect } from "react";
 
 function App() {
@@ -24,12 +20,8 @@ function App() {
         <Loader />
       ) : (
         <>
-          <Navbar />
           <HomePage />
-          <About />
-          <Slider />
-          <Proyects />
-          <Footer />
+         
         </>
       )}
     </div>
