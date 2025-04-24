@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 
 import Loader from "./components/Loader";
 import Navbar from "./components/Navbar/Navbar";
-import HomePage from "./components/Home/Home";
+import HomePage from "./components/home-page/Home";
 import About from "./components/About/Aboutme";
 
 

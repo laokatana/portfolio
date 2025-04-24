@@ -28,7 +28,7 @@ const transformando = keyframes`
 const ContainerHome = styled.div`
   min-height: 100vh;
   width: 100%;
-  background-image: url("/src/assets/sobremi.gif");
+  background-image: url("/sobremi.gif");
   background-size: cover;
   background-position: center bottom;
   background-repeat: no-repeat;
