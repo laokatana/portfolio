@@ -5,6 +5,7 @@ import Loader from "./components/Loader";
 import Navbar from "./components/Navbar/Navbar";
 import HomePage from "./components/home-page/Home";
 import About from "./components/About/Aboutme";
+import Footer from "./components/Footer";
 
 
 function App() {
@@ -18,7 +19,7 @@ function App() {
   }, []);
 
   return (
-    <div className="App">
+    <div className="App" style={{ overflowX: "hidden" }}>
       {loading ? (
         <Loader />
       ) : (
@@ -26,10 +27,11 @@ function App() {
           
           <Navbar />
           <HomePage/>
+          <About />
+           <Footer /> 
         
           {/* <Proyects /> */}
           {/* <Contacto /> */}
-          {/* <Footer /> */}
         </>
       )}
     </div>

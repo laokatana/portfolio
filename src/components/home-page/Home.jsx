@@ -33,7 +33,7 @@ const ContainerHome = styled.div`
   background-position: center bottom;
   background-repeat: no-repeat;
   background-attachment: fixed;
-  background-color: contain;
+
 
   display: flex;
   flex-direction: column;
@@ -96,6 +96,7 @@ const Developer = () => {
         <Title>LAO</Title>
         <Title>LARRAGUETA</Title>
         <TextHome>Software Developer</TextHome>
+        <TextHome>construction site</TextHome>
       </SectionHome>
     </ContainerHome>
   );

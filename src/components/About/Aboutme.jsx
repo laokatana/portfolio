@@ -3,13 +3,30 @@ import styled from "styled-components";
 
 // Container general
 const AboutContainer = styled.div`
+  min-height: 100vh;
+  width: 100%;
+  background-image: url("/barrio.gif");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-color: black;
   display: flex;
   flex-direction: column;
   align-items: center;
-  text-align: center;
-  padding: 12px;
-  background: rgba(0, 0, 0, 0.5); o background-color: #fff; etc. */
+  justify-content: center;
+  padding: 0 10px; /* para evitar que el texto se pegue a los bordes en pantallas pequeñas */
+
+  @media (max-width: 768px) {
+    background-attachment: scroll; /* para móviles, evitar bugs */
+    background-position: center top;
 `;
+/* display: flex;
+flex-direction: column;
+align-items: center;
+text-align: center;
+padding: 12px;
+background: rgba(0, 0, 0, 0.5); o background-color: #fff; etc. */
 
 // Título principal
 const AboutTitle = styled.p`
@@ -17,8 +34,10 @@ const AboutTitle = styled.p`
   font-size: 2.25rem;
   line-height: 2.5rem;
   padding: 10rem;
+  color: rgba(201, 185, 42, 0.91);
 
-  /* Ejemplo de animación si querés reemplazar 'animacio-about-me' */
+  /* Ejemplo de animación si querés reemplazar 
+    'animacio-about-me' */
   /* animation: fadeIn 0.8s ease-in-out; */
 `;
 
