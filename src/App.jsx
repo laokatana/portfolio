@@ -7,7 +7,6 @@ import HomePage from "./components/home-page/Home";
 import About from "./components/About/Aboutme";
 import Footer from "./components/Footer";
 
-
 function App() {
   const [loading, setLoading] = useState(false);
 
@@ -24,14 +23,15 @@ function App() {
         <Loader />
       ) : (
         <>
-          
           <Navbar />
-          <HomePage/>
+          <HomePage /> 
           <About />
-           <Footer /> 
-        
+          <Footer/>
+
           {/* <Proyects /> */}
           {/* <Contacto /> */}
+          {/* */}
+          {/* <About /> */}
         </>
       )}
     </div>

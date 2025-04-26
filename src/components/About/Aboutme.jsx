@@ -1,7 +1,19 @@
 import { useState } from "react";
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 
-// Container general
+// Animación fade-slide del texto dentro del InfoBox
+const fadeSlide = keyframes`
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+`;
+
+// Contenedor principal
 const AboutContainer = styled.div`
   min-height: 100vh;
   width: 100%;
@@ -11,62 +23,64 @@ const AboutContainer = styled.div`
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-color: black;
+
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  padding: 0 10px; /* para evitar que el texto se pegue a los bordes en pantallas pequeñas */
+  gap: 2rem;
+  padding: 5rem 10px 2rem 10px;
 
   @media (max-width: 768px) {
-    background-attachment: scroll; /* para móviles, evitar bugs */
+    background-attachment: scroll;
     background-position: center top;
-`;
-/* display: flex;
-flex-direction: column;
-align-items: center;
-text-align: center;
-padding: 12px;
-background: rgba(0, 0, 0, 0.5); o background-color: #fff; etc. */
-
-// Título principal
-const AboutTitle = styled.p`
-  margin-top: 20px;
-  font-size: 2.25rem;
-  line-height: 2.5rem;
-  padding: 10rem;
-  color: rgba(201, 185, 42, 0.91);
-
-  /* Ejemplo de animación si querés reemplazar 
-    'animacio-about-me' */
-  /* animation: fadeIn 0.8s ease-in-out; */
+    padding-top: 3rem;
+  }
 `;
 
-// Wrapper para los botones
+// Contenedor de todos los botones
 const ButtonSection = styled.section`
   display: flex;
-  flex-direction: row;
-  gap: 2rem;
   flex-wrap: wrap;
   justify-content: center;
+  gap: 1.5rem;
+  margin-top: 6rem;
+  
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    align-items: center;
+    padding: 0 1rem;
+  }
 `;
 
-// Botón estilizado
+// Contenedor individual para cada botón + su InfoBox
+const ButtonWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: all 0.4s ease; // <<< Hacemos que todo cambio sea suave
+  overflow: hidden;           // <<< Evita desbordes feos al abrir/cerrar
+`;
+
+// Estilo para cada botón
 const AboutButton = styled.button`
-  padding: 0.5rem;
-  font-size: 15px;
-  margin: 3rem;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  border: none;
-  background-color: #1f2937; /* gris oscuro tipo Tailwind bg-gray-800 */
-  color: #fcd34d; /* amarillo tipo Tailwind text-yellow-400 */
+  padding: 0rem 1rem;
+  font-size: 1.25rem;
+  margin: 2.5rem;
+  background-color: transparent;
+  color: #fcd34d;
+  border: 1px solid rgba(190, 138, 27, 0.51);
   border-radius: 5px;
   cursor: pointer;
   transition: all 0.3s ease;
+  text-align: center;
 
   &:hover {
-    background-color: #facc15;
-    color: #1f2937;
-    transform: scale(1.05);
+    color: rgb(234, 236, 222);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 10px;
+    border: 1px solid rgba(190, 138, 27, 0.51);
   }
 
   @media (min-width: 1536px) {
@@ -74,28 +88,68 @@ const AboutButton = styled.button`
     padding-right: 1.25rem;
     width: auto;
     font-size: 1.25rem;
-    margin: 0.25rem;
-    padding-bottom: 2rem;
   }
 `;
 
+// Caja que se expande/colapsa con animación de altura
+const InfoBox = styled.div`
+  max-height: ${({ $isActive }) => ($isActive ? "500px" : "0px")}; 
+  overflow: hidden;
+  transition: max-height 0.5s ease; // <<< ¡Animamos el cambio de altura!
+  width: 100%;
+  text-align: center;
+
+  // Estilos internos del contenido
+  & > div {
+    opacity: ${({ $isActive }) => ($isActive ? 1 : 0)};
+    transform: ${({ $isActive }) => ($isActive ? "translateY(0)" : "translateY(-10px)")};
+    transition: all 0.4s ease;
+    background-color: rgba(190, 138, 27, 0.1);
+    border: 1px solid rgba(190, 138, 27, 0.51);
+    border-radius: 8px;
+    color: #eaecee;
+    margin-top: 1rem;
+    padding: 1rem;
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+`;
+
+// Diccionario con los textos de cada sección
+const infoContent = {
+  education: "Aquí va la información sobre tu educación.",
+  knowledge: "Aquí va la información sobre tus conocimientos técnicos.",
+  certifications: "Aquí va la información sobre tus certificaciones."
+};
+
+// Componente principal
 const About = () => {
+  const [activeInfo, setActiveInfo] = useState(null); // Estado que guarda el botón activo
+
+  // Maneja los clicks: activa uno o desactiva si es el mismo
+  const handleButtonClick = (type) => {
+    setActiveInfo(prev => (prev === type ? null : type));
+  };
+
   return (
     <AboutContainer>
-      <AboutTitle>About me</AboutTitle>
-
       <ButtonSection>
-        <AboutButton onClick={() => console.log("educacion")}>
-          Education
-        </AboutButton>
+        {/* Generamos cada botón dinámicamente */}
+        {Object.keys(infoContent).map((key) => (
+          <ButtonWrapper key={key}>
+            <AboutButton onClick={() => handleButtonClick(key)}>
+              {key.charAt(0).toUpperCase() + key.slice(1).replace("-", " ")}
+            </AboutButton>
 
-        <AboutButton onClick={() => console.log("conocimientos")}>
-          Technical knowledge
-        </AboutButton>
-
-        <AboutButton onClick={() => console.log("certificados")}>
-          Certifications
-        </AboutButton>
+            {/* InfoBox que expande o colapsa suavemente */}
+            <InfoBox $isActive={activeInfo === key}>
+              <div>
+                {infoContent[key]}
+              </div>
+            </InfoBox>
+          </ButtonWrapper>
+        ))}
       </ButtonSection>
     </AboutContainer>
   );

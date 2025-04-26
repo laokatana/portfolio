@@ -96,7 +96,6 @@ const Developer = () => {
         <Title>LAO</Title>
         <Title>LARRAGUETA</Title>
         <TextHome>Software Developer</TextHome>
-        <TextHome>construction site</TextHome>
       </SectionHome>
     </ContainerHome>
   );

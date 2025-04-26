@@ -43,8 +43,8 @@ const FooterContainer = styled.div`
   justify-content: center;
 
   background-image: url("../src/assets/footer4.gif");
-  background-position: center top;
-  background-size: 105%;
+  background-position: center bottom;
+  background-size: 100%;
   background-repeat: no-repeat;
   background-attachment: fixed;
   padding: 0 10px;

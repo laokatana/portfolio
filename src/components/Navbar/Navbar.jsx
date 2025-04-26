@@ -92,12 +92,14 @@ const Menu = styled.div`
 const MenuItem = styled.div`
   color: #fcd34d;
   cursor: pointer;
-  text-shadow: 5px 5px 8px #da2323;
+  text-shadow: 1px 1px 8px #da2323;
   transition: all 0.2s ease;
   border-bottom: 1px solid rgba(255, 255, 255, 0.3);
   width: fit-content;
   padding-bottom: 0.5rem;
-  margin-bottom: 1.5rem;
+
+  border-box: 1px #fcd34d;
+
 
   opacity: 0;
   animation: ${fadeSlide} 0.5s forwards;
@@ -105,7 +107,6 @@ const MenuItem = styled.div`
 
   &:hover {
     color: #facc15;
-    text-shadow: 5px 5px 8px #da2323;
     transform: scale(1.1);
   }
 
@@ -124,8 +125,7 @@ const MenuItem = styled.div`
 
     &:hover {
       transform: scale(1.1);
-      color: #facc15;
-      text-shadow: 5px 5px 8px #da2323;
+      
     }
 
     &:active {
@@ -249,7 +249,7 @@ const Navbar = () => {
         </Hamburger>
         <Menu open={menuOpen}>
           <MenuItem onClick={() => handleClick(home)}>Home</MenuItem>
-          <MenuItem onClick={() => handleClick(aboutMe)}>Developer</MenuItem>
+          <MenuItem onClick={() => handleClick(aboutMe)}>About me</MenuItem>
           <MenuItem onClick={() => handleClick(proyects)}>Proyects</MenuItem>
           <MenuItem onClick={() => handleClick(contacto)}>Contact</MenuItem>
         </Menu>
