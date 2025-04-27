@@ -42,9 +42,9 @@ const FooterContainer = styled.div`
   align-items: center;
   justify-content: center;
 
-  background-image: url("../src/assets/footer4.gif");
+  background-image: url("/footer4.gif");
   background-position: center bottom;
-  background-size: 100%;
+  background-size: 108%;
   background-repeat: no-repeat;
   background-attachment: fixed;
   padding: 0 10px;
@@ -62,29 +62,30 @@ const FooterContainer = styled.div`
 `;
 
 const FooterSection = styled.section`
-  color: #cbd5e1;
   display: flex;
   flex-direction: column;
   height: 100vh;
   align-items: center;
   justify-content: center;
-  gap: 1.25rem;
+  gap: 2.25rem;
   font-size: 1.5rem;
   padding: 0 10px;
-  padding-bottom: 5rem;
+  padding-bottom: 15rem;
 
+  
   @media (max-width: 768px) {
     height: auto;
     padding-top: 4rem;
+    margin-top: 15rem;
   }
 `;
 
 const FooterTitle = styled.p`
   font-size: 3rem;
-  color: #cbd5e1;
+  color: rgba(201, 185, 42, 0.91);
+  text-shadow: 1px 1px 1px #da2323;
   text-align: center;
   padding-bottom: 2.75rem;
-  
 
   @media (max-width: 768px) {
     font-size: 2.25rem;
@@ -103,8 +104,11 @@ const FooterItem = styled.a`
 
   &:hover {
     transform: scale(1.1);
-     color: #a5992d;
-      text-shadow: 2px 2px 8px #ff0000;
+    color: #fcd34d;
+    border: 1px solid rgba(190, 138, 27, 0.51);
+    text-shadow: 1px 1px 1px #da2323;
+    border-radius: 5px;
+    padding: 0.1rem;
   }
 `;
 
@@ -121,7 +125,7 @@ const Footer = () => {
         <FooterTitle>Contacto</FooterTitle>
 
         <FooterItem
-          href="https://www.linkedin.com/in/lautaro-larragueta/"
+          href="https://www.linkedin.com/in/lao-larragueta/"
           target="_blank"
           rel="noopener noreferrer"
         >
@@ -150,7 +154,6 @@ const Footer = () => {
         >
           Descargar CV
         </FooterItem>
-
       </FooterSection>
       <FooterText>Design By Lao</FooterText>
       <FooterText>Email</FooterText>

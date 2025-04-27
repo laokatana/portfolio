@@ -27,12 +27,14 @@ const Nav = styled.nav`
   height: 4rem;
   padding: 0 2rem;
   position: fixed;
-  background-color: transparent;
+  
+  background: rgba(24, 22, 22, 0.2); /* */
+  backdrop-filter: blur(1px);
   z-index: 10;
 
   &.scrolling {
-    backdrop-filter: none;
-    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(1px);
+    
   }
 `;
 

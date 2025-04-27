@@ -29,11 +29,13 @@ const AboutContainer = styled.div`
   align-items: center;
   gap: 2rem;
   padding: 5rem 10px 2rem 10px;
+  margin-top: rem;
 
   @media (max-width: 768px) {
     background-attachment: scroll;
     background-position: center top;
     padding-top: 3rem;
+
   }
 `;
 

@@ -1,15 +1,12 @@
 import React, { useRef, useEffect } from "react";
 import styled from "styled-components";
-import cripto from "../assets/images/criptomania.jpg";
-import task from "../assets/images/tareas.jpg";
-import autores from "../assets/images/libros.jpg";
-import noticias from "../assets/images/noticias.jpg";
 
-/*
-  documentar las funciones next y previous
-  detallando su funcionamiento.
+import { useState } from "react";
 
-*/
+
+
+
+
 
 const Slider = () => {
   const slideshow = useRef(null);
@@ -70,6 +67,7 @@ const Slider = () => {
 
   /*
   este bloque de codigo se encargaba del efecto automatico del slider
+  pero lo desactive porque me bugea la pagina y no se porque
 
   useEffect(() => {
     let intervalo = setInterval(() => {
@@ -97,7 +95,7 @@ const Slider = () => {
       <ContenedorSlidehshow ref={slideshow}>
         <Slide>
           <a href="https://fluffy-dusk-ece8ea.netlify.app/" target="_blank">
-            <img src={cripto} alt="" />
+            <img src="/images/criptomania.jpg" alt="" />
           </a>
 
           <TextoSlide>
@@ -112,7 +110,7 @@ const Slider = () => {
             href="https://laokatana.github.io/anotador-de-tareas/"
             target="_blank"
           >
-            <img src={task} alt="" />
+            <img src="/images/task.jpg" alt="" />
           </a>
 
           <TextoSlide>
@@ -124,7 +122,7 @@ const Slider = () => {
 
         <Slide>
           <a href="https://github.com/laokatana/API-de-Autores" target="_blank">
-            <img src={autores} alt="" />
+            <img src="/images/autores.jpg" alt="" />
           </a>
 
           <TextoSlide>
@@ -145,7 +143,7 @@ const Slider = () => {
           <p> ← </p>{" "}
         </Boton>
 
-        <Boton derecho onClick={next}>
+        <Boton $derecho onClick={next}>
           {" "}
           <p> → </p>{" "}
         </Boton>
@@ -219,11 +217,11 @@ const Boton = styled.button`
       color: #daa89d;
     }
   }
-  ${(props) => (props.derecho ? "right: 0" : "left: 0")};
+  ${(props) => (props.$derecho ? "right: 0" : "left: 0")};
   p {
     font-size: 15px;
     filter: ${(props) =>
-      props.derecho
+      props.$derecho
         ? "drop-shadow(-2px 0px 0px #fff)"
         : "drop-shadow(2px 0px 0px #fff)"};
   }
