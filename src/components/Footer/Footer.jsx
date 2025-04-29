@@ -72,7 +72,6 @@ const FooterSection = styled.section`
   padding: 0 10px;
   padding-bottom: 15rem;
 
-  
   @media (max-width: 768px) {
     height: auto;
     padding-top: 4rem;

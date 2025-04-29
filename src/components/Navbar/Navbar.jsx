@@ -27,14 +27,13 @@ const Nav = styled.nav`
   height: 4rem;
   padding: 0 2rem;
   position: fixed;
-  
+
   background: rgba(24, 22, 22, 0.2); /* */
   backdrop-filter: blur(1px);
   z-index: 10;
 
   &.scrolling {
     backdrop-filter: blur(1px);
-    
   }
 `;
 
@@ -102,7 +101,6 @@ const MenuItem = styled.div`
 
   border-box: 1px #fcd34d;
 
-
   opacity: 0;
   animation: ${fadeSlide} 0.5s forwards;
   animation-delay: ${({ index }) => index * 0.2}s;
@@ -127,7 +125,6 @@ const MenuItem = styled.div`
 
     &:hover {
       transform: scale(1.1);
-      
     }
 
     &:active {

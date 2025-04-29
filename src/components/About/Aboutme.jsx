@@ -1,7 +1,6 @@
 import { useState } from "react";
 import styled, { keyframes } from "styled-components";
 
-
 // Animación fade-slide del texto dentro del InfoBox
 const fadeSlide = keyframes`
   from {
@@ -36,7 +35,6 @@ const AboutContainer = styled.div`
     background-attachment: scroll;
     background-position: center top;
     padding-top: 3rem;
-
   }
 `;
 
@@ -47,7 +45,6 @@ const ButtonSection = styled.section`
   justify-content: center;
   gap: 1.5rem;
   margin-top: 6rem;
-  
 
   @media (max-width: 768px) {
     flex-direction: column;
@@ -62,7 +59,7 @@ const ButtonWrapper = styled.div`
   flex-direction: column;
   align-items: center;
   transition: all 0.4s ease; // <<< Hacemos que todo cambio sea suave
-  overflow: hidden;           // <<< Evita desbordes feos al abrir/cerrar
+  overflow: hidden; // <<< Evita desbordes feos al abrir/cerrar
 `;
 
 // Estilo para cada botón
@@ -96,7 +93,7 @@ const AboutButton = styled.button`
 
 // Caja que se expande/colapsa con animación de altura
 const InfoBox = styled.div`
-  max-height: ${({ $isActive }) => ($isActive ? "500px" : "0px")}; 
+  max-height: ${({ $isActive }) => ($isActive ? "500px" : "0px")};
   overflow: hidden;
   transition: max-height 0.5s ease; // <<< ¡Animamos el cambio de altura!
   width: 100%;
@@ -105,7 +102,8 @@ const InfoBox = styled.div`
   // Estilos internos del contenido
   & > div {
     opacity: ${({ $isActive }) => ($isActive ? 1 : 0)};
-    transform: ${({ $isActive }) => ($isActive ? "translateY(0)" : "translateY(-10px)")};
+    transform: ${({ $isActive }) =>
+      $isActive ? "translateY(0)" : "translateY(-10px)"};
     transition: all 0.4s ease;
     background-color: rgba(190, 138, 27, 0.1);
     border: 1px solid rgba(190, 138, 27, 0.51);
@@ -123,7 +121,7 @@ const InfoBox = styled.div`
 const infoContent = {
   education: "Aquí va la información sobre tu educación.",
   knowledge: "Aquí va la información sobre tus conocimientos técnicos.",
-  certifications: "Aquí va la información sobre tus certificaciones."
+  certifications: "Aquí va la información sobre tus certificaciones.",
 };
 
 // Componente principal
@@ -132,7 +130,7 @@ const About = () => {
 
   // Maneja los clicks: activa uno o desactiva si es el mismo
   const handleButtonClick = (type) => {
-    setActiveInfo(prev => (prev === type ? null : type));
+    setActiveInfo((prev) => (prev === type ? null : type));
   };
 
   return (
@@ -147,22 +145,12 @@ const About = () => {
 
             {/* InfoBox que expande o colapsa suavemente */}
             <InfoBox $isActive={activeInfo === key}>
-              <div>
-                {infoContent[key]}
-              </div>
+              <div>{infoContent[key]}</div>
             </InfoBox>
           </ButtonWrapper>
         ))}
-       
       </ButtonSection>
-
-      
-
     </AboutContainer>
-
-
-
-
   );
 };
 

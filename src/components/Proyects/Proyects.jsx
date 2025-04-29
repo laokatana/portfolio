@@ -158,8 +158,9 @@ const ProjectsSection = () => {
 
       <Description>
         <p>
-          Aquí encontrarás proyectos realizados mediante cursos como IntegrarTec (MERN stack),
-          Programa ONE de Alura y proyectos autodidactas. Herramientas: HTML, CSS, React, JavaScript, Node.js, Express, MongoDB.
+          Aquí encontrarás proyectos realizados mediante cursos como IntegrarTec
+          (MERN stack), Programa ONE de Alura y proyectos autodidactas.
+          Herramientas: HTML, CSS, React, JavaScript, Node.js, Express, MongoDB.
         </p>
       </Description>
 
@@ -184,7 +185,9 @@ const ProjectsSection = () => {
           ))}
         </CardsContainer>
 
-        <ArrowButton $right onClick={() => scroll("right")}>→</ArrowButton>
+        <ArrowButton $right onClick={() => scroll("right")}>
+          →
+        </ArrowButton>
       </CarouselContainer>
     </SectionContainer>
   );
