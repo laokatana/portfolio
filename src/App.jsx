@@ -8,8 +8,6 @@ import About from "./components/About/Aboutme";
 import Footer from "./components/Footer/Footer";
 import Proyects from "./components/Proyects/Proyects";
 
-
-
 function App() {
   const [loading, setLoading] = useState(false);
 
@@ -26,14 +24,11 @@ function App() {
         <Loader />
       ) : (
         <>
-         {/*  
-          <HomePage /> 
-          <Footer/>
-          <About /> */}
           <Navbar />
+          <HomePage />
+          <About />
           <Proyects />
-
-         
+          <Footer />
         </>
       )}
     </div>

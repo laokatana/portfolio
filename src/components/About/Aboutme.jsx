@@ -1,6 +1,7 @@
 import { useState } from "react";
 import styled, { keyframes } from "styled-components";
 
+
 // Animación fade-slide del texto dentro del InfoBox
 const fadeSlide = keyframes`
   from {
@@ -152,8 +153,16 @@ const About = () => {
             </InfoBox>
           </ButtonWrapper>
         ))}
+       
       </ButtonSection>
+
+      
+
     </AboutContainer>
+
+
+
+
   );
 };
 
