@@ -1,5 +1,5 @@
-import { useState } from "react";
-import styled, { keyframes } from "styled-components";
+import { useState } from 'react';
+import styled, { keyframes } from 'styled-components';
 
 // Animación fade-slide del texto dentro del InfoBox
 const fadeSlide = keyframes`
@@ -17,7 +17,7 @@ const fadeSlide = keyframes`
 const AboutContainer = styled.div`
   min-height: 100vh;
   width: 100%;
-  background-image: url("/barrio.gif");
+  background-image: url('/barrio.gif');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -93,7 +93,7 @@ const AboutButton = styled.button`
 
 // Caja que se expande/colapsa con animación de altura
 const InfoBox = styled.div`
-  max-height: ${({ $isActive }) => ($isActive ? "500px" : "0px")};
+  max-height: ${({ $isActive }) => ($isActive ? '500px' : '0px')};
   overflow: hidden;
   transition: max-height 0.5s ease; // <<< ¡Animamos el cambio de altura!
   width: 100%;
@@ -103,7 +103,7 @@ const InfoBox = styled.div`
   & > div {
     opacity: ${({ $isActive }) => ($isActive ? 1 : 0)};
     transform: ${({ $isActive }) =>
-      $isActive ? "translateY(0)" : "translateY(-10px)"};
+      $isActive ? 'translateY(0)' : 'translateY(-10px)'};
     transition: all 0.4s ease;
     background-color: rgba(190, 138, 27, 0.1);
     border: 1px solid rgba(190, 138, 27, 0.51);
@@ -119,9 +119,8 @@ const InfoBox = styled.div`
 
 // Diccionario con los textos de cada sección
 const infoContent = {
-  education: "Aquí va la información sobre tu educación.",
-  knowledge: "Aquí va la información sobre tus conocimientos técnicos.",
-  certifications: "Aquí va la información sobre tus certificaciones.",
+  aboutMe: 'Aquí va la información sobre tu educación.',
+  knowledge: 'Aquí va la información sobre tus conocimientos técnicos.',
 };
 
 // Componente principal
@@ -140,7 +139,7 @@ const About = () => {
         {Object.keys(infoContent).map((key) => (
           <ButtonWrapper key={key}>
             <AboutButton onClick={() => handleButtonClick(key)}>
-              {key.charAt(0).toUpperCase() + key.slice(1).replace("-", " ")}
+              {key.charAt(0).toUpperCase() + key.slice(1).replace('-', ' ')}
             </AboutButton>
 
             {/* InfoBox que expande o colapsa suavemente */}

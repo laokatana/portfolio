@@ -1,6 +1,6 @@
-import React, { useRef, useEffect } from "react";
-import styled from "styled-components";
-import { useState } from "react";
+import React, { useRef, useEffect } from 'react';
+import styled from 'styled-components';
+import { useState } from 'react';
 
 const ContenedorPrincipal = styled.div`
   position: relative;
@@ -67,13 +67,13 @@ const Boton = styled.button`
       color: #daa89d;
     }
   }
-  ${(props) => (props.$derecho ? "right: 0" : "left: 0")};
+  ${(props) => (props.$derecho ? 'right: 0' : 'left: 0')};
   p {
     font-size: 15px;
     filter: ${(props) =>
       props.$derecho
-        ? "drop-shadow(-2px 0px 0px #fff)"
-        : "drop-shadow(2px 0px 0px #fff)"};
+        ? 'drop-shadow(-2px 0px 0px #fff)'
+        : 'drop-shadow(2px 0px 0px #fff)'};
   }
 
   @media (width: 320px) {
@@ -113,17 +113,17 @@ const Slider = () => {
       const transicion = () => {
         // reiniciamos la posicion de slideshow.
 
-        slideshow.current.style.transition = "none";
+        slideshow.current.style.transition = 'none';
         slideshow.current.style.transform = `translateX(0)`;
 
         // tomamos el primer elemento y lo mandamos al final.
         slideshow.current.appendChild(firstElement);
 
-        slideshow.current.removeEventListener("transitionend", transicion);
+        slideshow.current.removeEventListener('transitionend', transicion);
       };
 
       // Evenlistener para cuando termina la animacion
-      slideshow.current.addEventListener("transitionend", transicion);
+      slideshow.current.addEventListener('transitionend', transicion);
     }
   };
 
@@ -138,13 +138,13 @@ const Slider = () => {
         ultimateElement,
         slideshow.current.firstChild
       );
-      slideshow.current.style.transition = "none";
+      slideshow.current.style.transition = 'none';
 
       const tamanioSlide = slideshow.current.children[0].offsetWidth;
       slideshow.current.style.transform = `translateX(-${tamanioSlide}px)`;
 
       setTimeout(() => {
-        slideshow.current.style.transition = "1000ms ease-out all";
+        slideshow.current.style.transition = '1000ms ease-out all';
         slideshow.current.style.transform = `translateX(0)`;
       }, 30);
     }
@@ -224,13 +224,13 @@ const Slider = () => {
 
       <Controles>
         <Boton onClick={previous}>
-          {" "}
-          <p> ← </p>{" "}
+          {' '}
+          <p> ← </p>{' '}
         </Boton>
 
         <Boton $derecho onClick={next}>
-          {" "}
-          <p> → </p>{" "}
+          {' '}
+          <p> → </p>{' '}
         </Boton>
       </Controles>
     </ContenedorPrincipal>

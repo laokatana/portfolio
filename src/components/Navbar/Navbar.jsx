@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react";
-import styled, { keyframes } from "styled-components";
+import React, { useState, useEffect } from 'react';
+import styled, { keyframes } from 'styled-components';
 
 // animacion para los elementos del menu
 // la animacion es un fade y un slide hacia la derecha
@@ -40,7 +40,7 @@ const Nav = styled.nav`
 // aqui definimos el overlay y sus estilos
 // el overlay es el fondo que aparece cuando el menu esta abierto
 const Overlay = styled.div`
-  display: ${({ open }) => (open ? "block" : "none")};
+  display: ${({ open }) => (open ? 'block' : 'none')};
   position: fixed;
   top: 0;
   left: 0;
@@ -65,11 +65,13 @@ const Menu = styled.div`
   top: 0;
   left: 0;
   height: 100vh;
-  width: ${({ open }) => (open ? "100%" : "70%")};
+  width: ${({ open }) => (open ? '100%' : '70%')};
   background: transparent;
   padding: 4rem 2rem;
-  transform: ${({ open }) => (open ? "translateX(0%)" : "translateX(-100%)")};
-  transition: transform 0.3s ease-in-out, width 0.3s ease-in-out;
+  transform: ${({ open }) => (open ? 'translateX(0%)' : 'translateX(-100%)')};
+  transition:
+    transform 0.3s ease-in-out,
+    width 0.3s ease-in-out;
   backdrop-filter: none;
   z-index: 100;
 
@@ -113,7 +115,9 @@ const MenuItem = styled.div`
   &:active {
     transform: scale(0.95);
     opacity: 0.8;
-    transition: transform 0.05s ease, opacity 0.05s ease;
+    transition:
+      transform 0.05s ease,
+      opacity 0.05s ease;
   }
 
   @media (min-width: 992px) {
@@ -181,8 +185,8 @@ const Navbar = () => {
 
   useEffect(() => {
     const handleScroll = () => setScrollHeight(window.scrollY);
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   useEffect(() => {
@@ -191,8 +195,8 @@ const Navbar = () => {
         setMenuOpen(false);
       }
     };
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
   }, [menuOpen]);
 
   const handleClick = (callback) => {
@@ -202,44 +206,44 @@ const Navbar = () => {
 
   const home = () =>
     window.scrollTo(
-      { top: 0, left: 0, behavior: "smooth" },
-      console.log("home")
+      { top: 0, left: 0, behavior: 'smooth' },
+      console.log('home')
     );
   const aboutMe = () => {
     if (screen.width <= mobile) {
       window.scrollTo(
-        { top: 520, left: 0, behavior: "smooth" },
-        console.log("aboutMe")
+        { top: 520, left: 0, behavior: 'smooth' },
+        console.log('aboutMe')
       );
     } else {
       window.scrollTo(
-        { top: 870, left: 0, behavior: "smooth" },
-        console.log("aboutMe")
+        { top: 870, left: 0, behavior: 'smooth' },
+        console.log('aboutMe')
       );
     }
   };
   const proyects = () => {
     if (screen.width >= desktop || screen.width >= desktopXl) {
-      window.scrollTo({ top: 1600, left: 0, behavior: "smooth" });
-      console.log("proyects");
+      window.scrollTo({ top: 1600, left: 0, behavior: 'smooth' });
+      console.log('proyects');
     } else {
       window.scrollTo(
-        { top: 1050, left: 0, behavior: "smooth" },
-        console.log("proyects")
+        { top: 1050, left: 0, behavior: 'smooth' },
+        console.log('proyects')
       );
     }
   };
   const contacto = () =>
     window.scrollTo(
-      { top: 3500, left: 0, behavior: "smooth" },
-      console.log("contacto")
+      { top: 3500, left: 0, behavior: 'smooth' },
+      console.log('contacto')
     );
 
   return (
     <>
-      <Nav className={scrollHeight > 20 ? "scrolling" : ""}>
+      <Nav className={scrollHeight > 20 ? 'scrolling' : ''}>
         <Hamburger
-          className={menuOpen ? "open" : ""}
+          className={menuOpen ? 'open' : ''}
           onClick={() => setMenuOpen(!menuOpen)}
         >
           <span />

@@ -1,32 +1,32 @@
-import React, { useRef, useState, useEffect } from "react";
-import styled from "styled-components";
+import React, { useRef, useState, useEffect } from 'react';
+import styled from 'styled-components';
 
 const projects = [
   {
-    link: "https://fluffy-dusk-ece8ea.netlify.app/",
-    image: "/images/criptomania.jpg",
+    link: 'https://fluffy-dusk-ece8ea.netlify.app/',
+    image: '/images/criptomania.jpg',
     description: [
-      "Proyecto Autodidacta",
-      "Cotizador de criptomonedas",
-      "Herramientas: React y Styled Components",
+      'Proyecto Autodidacta',
+      'Cotizador de criptomonedas',
+      'Herramientas: React y Styled Components',
     ],
   },
   {
-    link: "https://laokatana.github.io/anotador-de-tareas/",
-    image: "/images/task.jpg",
+    link: 'https://laokatana.github.io/anotador-de-tareas/',
+    image: '/images/task.jpg',
     description: [
-      "Proyecto Programa ONE - Alura",
-      "Anotador de tareas",
-      "Herramientas: HTML, CSS, JavaScript",
+      'Proyecto Programa ONE - Alura',
+      'Anotador de tareas',
+      'Herramientas: HTML, CSS, JavaScript',
     ],
   },
   {
-    link: "https://github.com/laokatana/API-de-Autores",
-    image: "/images/autores.jpg",
+    link: 'https://github.com/laokatana/API-de-Autores',
+    image: '/images/autores.jpg',
     description: [
-      "Programa IntegrarTec",
-      "API de autores (back-end)",
-      "Herramientas: NodeJs, MongoDB, Express",
+      'Programa IntegrarTec',
+      'API de autores (back-end)',
+      'Herramientas: NodeJs, MongoDB, Express',
     ],
   },
 ];
@@ -34,6 +34,8 @@ const projects = [
 // Styled Components
 const SectionContainer = styled.section`
   background-color: black;
+  width: 100%;
+  min-height: 100vh;
   padding: 60px 20px;
   text-align: center;
   color: #d8d085;
@@ -135,10 +137,10 @@ const ProjectsSection = () => {
   const scrollAmount = 600; // Aumentamos el tamaño del scroll para adaptarse al nuevo ancho de la tarjeta
 
   const scroll = (direction) => {
-    if (direction === "left") {
-      sliderRef.current.scrollBy({ left: -scrollAmount, behavior: "smooth" });
+    if (direction === 'left') {
+      sliderRef.current.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
     } else {
-      sliderRef.current.scrollBy({ left: scrollAmount, behavior: "smooth" });
+      sliderRef.current.scrollBy({ left: scrollAmount, behavior: 'smooth' });
     }
   };
 
@@ -146,7 +148,7 @@ const ProjectsSection = () => {
     let intervalId;
     if (autoSlide) {
       intervalId = setInterval(() => {
-        scroll("right");
+        scroll('right');
       }, 1000); // Cambiar de slide cada 3 segundos
     }
     return () => clearInterval(intervalId); // Limpiar el intervalo al desmontar el componente
@@ -158,9 +160,23 @@ const ProjectsSection = () => {
 
       <Description>
         <p>
-          Aquí encontrarás proyectos realizados mediante cursos como IntegrarTec
-          (MERN stack), Programa ONE de Alura y proyectos autodidactas.
-          Herramientas: HTML, CSS, React, JavaScript, Node.js, Express, MongoDB.
+          En este espacio, comparto proyectos desarrollados a lo largo de mi
+          aprendizaje, tanto en cursos como IntegrarTec (MERN Stack) y el
+          programa ONE de Alura, como en proyectos autodidactas y experiencias
+          reales. Durante estos proyectos, he aplicado una amplia variedad de
+          tecnologías y herramientas, y he trabajado con soluciones tanto en
+          bases de datos no relacionales (MongoDB) como en bases de datos
+          relacionales utilizando SQL. Las tecnologías utilizadas incluyen:{' '}
+          <br /> <br />
+          Frontend: HTML, CSS, React, JavaScript. <br />
+          Backend: Node.js, Express, TypeScript. <br />
+          Base de datos: MongoDB (no relacional), SQL (bases de datos
+          relacionales). <br /> <br />
+          Cada proyecto refleja una combinación de conocimientos técnicos
+          adquiridos a través de cursos y la resolución de problemas reales,
+          permitiéndome desarrollar soluciones funcionales y escalables,
+          mientras continúo perfeccionando mis habilidades en la gestión y
+          optimización de bases de datos de diversas arquitecturas.
         </p>
       </Description>
 
@@ -168,7 +184,7 @@ const ProjectsSection = () => {
         onMouseEnter={() => setAutoSlide(false)} // Detener el auto slide cuando el mouse entra
         onMouseLeave={() => setAutoSlide(true)} // Reanudar el auto slide cuando el mouse sale
       >
-        <ArrowButton onClick={() => scroll("left")}>←</ArrowButton>
+        <ArrowButton onClick={() => scroll('left')}>←</ArrowButton>
 
         <CardsContainer ref={sliderRef}>
           {projects.map((project, index) => (
@@ -185,7 +201,7 @@ const ProjectsSection = () => {
           ))}
         </CardsContainer>
 
-        <ArrowButton $right onClick={() => scroll("right")}>
+        <ArrowButton $right onClick={() => scroll('right')}>
           →
         </ArrowButton>
       </CarouselContainer>

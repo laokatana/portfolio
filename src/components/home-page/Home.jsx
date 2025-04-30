@@ -1,6 +1,5 @@
-import React from "react";
-import styled, { keyframes } from "styled-components";
-
+import React from 'react';
+import styled, { keyframes } from 'styled-components';
 
 const transformando = keyframes`
   0%, 100% {
@@ -28,12 +27,11 @@ const transformando = keyframes`
 const ContainerHome = styled.div`
   min-height: 100vh;
   width: 100%;
-  background-image: url("/sobremi.gif");
+  background-image: url('/sobremi.gif');
   background-size: cover;
   background-position: center bottom;
   background-repeat: no-repeat;
   background-attachment: fixed;
-
 
   display: flex;
   flex-direction: column;

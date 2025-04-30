@@ -1,5 +1,5 @@
-import React from "react";
-import styled, { keyframes } from "styled-components";
+import React from 'react';
+import styled, { keyframes } from 'styled-components';
 
 // Animación mezcladito (para los links)
 const mezcladito = keyframes`
@@ -42,7 +42,7 @@ const FooterContainer = styled.div`
   align-items: center;
   justify-content: center;
 
-  background-image: url("/footer4.gif");
+  background-image: url('/footer4.gif');
   background-position: center bottom;
   background-size: 108%;
   background-repeat: no-repeat;
