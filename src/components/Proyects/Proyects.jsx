@@ -31,7 +31,8 @@ const projects = [
   },
 ];
 
-// Styled Components
+// Styled Components (igual que antes)
+
 const SectionContainer = styled.section`
   background-color: black;
   width: 100%;
@@ -65,14 +66,11 @@ const CarouselContainer = styled.div`
 
 const CardsContainer = styled.div`
   display: flex;
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
-  scrollbar-width: none; /* Firefox */
-  -ms-overflow-style: none; /* Internet Explorer 10+ */
+  overflow-x: hidden;
   gap: 20px;
   padding: 20px 0;
-  scroll-behavior: smooth;
   width: 90%;
+  transition: transform 0.3s ease;
 
   &::-webkit-scrollbar {
     display: none; /* Chrome, Safari */
@@ -84,7 +82,6 @@ const Card = styled.div`
   background-color: #1a1a1a;
   border-radius: 15px;
   overflow: hidden;
-  scroll-snap-align: center;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.7);
   transition: transform 0.3s;
 
@@ -133,26 +130,42 @@ const ArrowButton = styled.button`
 
 const ProjectsSection = () => {
   const sliderRef = useRef(null);
-  const [autoSlide, setAutoSlide] = useState(true);
   const scrollAmount = 600; // Aumentamos el tamaño del scroll para adaptarse al nuevo ancho de la tarjeta
+  const totalCards = projects.length;
 
-  const scroll = (direction) => {
+  const moveSlider = (direction) => {
+    const container = sliderRef.current;
+    const firstCard = container.firstElementChild;
+    const lastCard = container.lastElementChild;
+
     if (direction === 'left') {
-      sliderRef.current.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+      if (container.scrollLeft === 0) {
+        // Mover al último conjunto de tarjetas
+        container.scrollTo({
+          left: container.scrollWidth - container.clientWidth,
+          behavior: 'smooth',
+        });
+      } else {
+        container.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+      }
     } else {
-      sliderRef.current.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+      if (
+        container.scrollLeft + container.clientWidth ===
+        container.scrollWidth
+      ) {
+        // Mover al primer conjunto de tarjetas
+        container.scrollTo({
+          left: 0,
+          behavior: 'smooth',
+        });
+      } else {
+        container.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+      }
     }
   };
 
-  useEffect(() => {
-    let intervalId;
-    if (autoSlide) {
-      intervalId = setInterval(() => {
-        scroll('right');
-      }, 1000); // Cambiar de slide cada 3 segundos
-    }
-    return () => clearInterval(intervalId); // Limpiar el intervalo al desmontar el componente
-  }, [autoSlide]);
+  // Generar un arreglo de proyectos duplicado para el efecto infinito
+  const duplicatedProjects = [...projects, ...projects, ...projects];
 
   return (
     <SectionContainer>
@@ -164,30 +177,23 @@ const ProjectsSection = () => {
           aprendizaje, tanto en cursos como IntegrarTec (MERN Stack) y el
           programa ONE de Alura, como en proyectos autodidactas y experiencias
           reales. Durante estos proyectos, he aplicado una amplia variedad de
-          tecnologías y herramientas, y he trabajado con soluciones tanto en
-          bases de datos no relacionales (MongoDB) como en bases de datos
-          relacionales utilizando SQL. Las tecnologías utilizadas incluyen:{' '}
-          <br /> <br />
+          tecnologías y herramientas,Las tecnologías utilizadas incluyen: <br />
           Frontend: HTML, CSS, React, JavaScript. <br />
           Backend: Node.js, Express, TypeScript. <br />
           Base de datos: MongoDB (no relacional), SQL (bases de datos
-          relacionales). <br /> <br />
-          Cada proyecto refleja una combinación de conocimientos técnicos
-          adquiridos a través de cursos y la resolución de problemas reales,
-          permitiéndome desarrollar soluciones funcionales y escalables,
+          relacionales). Cada proyecto refleja una combinación de conocimientos
+          técnicos adquiridos a través de cursos y la resolución de problemas
+          reales, permitiéndome desarrollar soluciones funcionales y escalables,
           mientras continúo perfeccionando mis habilidades en la gestión y
           optimización de bases de datos de diversas arquitecturas.
         </p>
       </Description>
 
-      <CarouselContainer
-        onMouseEnter={() => setAutoSlide(false)} // Detener el auto slide cuando el mouse entra
-        onMouseLeave={() => setAutoSlide(true)} // Reanudar el auto slide cuando el mouse sale
-      >
-        <ArrowButton onClick={() => scroll('left')}>←</ArrowButton>
+      <CarouselContainer>
+        <ArrowButton onClick={() => moveSlider('left')}>←</ArrowButton>
 
         <CardsContainer ref={sliderRef}>
-          {projects.map((project, index) => (
+          {duplicatedProjects.map((project, index) => (
             <Card key={index}>
               <a href={project.link} target="_blank" rel="noopener noreferrer">
                 <CardImage src={project.image} alt="Proyecto" />
@@ -201,7 +207,7 @@ const ProjectsSection = () => {
           ))}
         </CardsContainer>
 
-        <ArrowButton $right onClick={() => scroll('right')}>
+        <ArrowButton $right onClick={() => moveSlider('right')}>
           →
         </ArrowButton>
       </CarouselContainer>
