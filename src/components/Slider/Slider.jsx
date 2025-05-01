@@ -150,30 +150,6 @@ const Slider = () => {
     }
   };
 
-  /*
-  este bloque de codigo se encargaba del efecto automatico del slider
-  pero lo desactive porque me bugea la pagina y no se porque
-
-  useEffect(() => {
-    let intervalo = setInterval(() => {
-      next();
-    }, 5000);
-
-    //eliminamos los intervalos
-    slideshow.current.addEventListener("mouseenter", () => {
-      clearInterval(intervalo);
-    });
-
-    //volver a poner el intervalo cuando saquen el cursor del slideshow
-    slideshow.current.addEventListener("mouseleave", () => {
-      intervalo = setInterval(() => {
-        next();
-      }, 5000);
-    });
-  }, []);
-
-  */
-
   return (
     <ContenedorPrincipal>
       <TitleProyect>Proyectos</TitleProyect>
@@ -238,3 +214,27 @@ const Slider = () => {
 };
 
 export default Slider;
+
+/*este bloque de codigo se encargaba del efecto automatico del slider
+  pero lo desactive porque me bugea la pagina y no se porque*/
+
+/*
+  useEffect(() => {
+    let intervalo = setInterval(() => {
+      next();
+    }, 2000);
+
+    //eliminamos los intervalos
+    slideshow.current.addEventListener('mouseenter', () => {
+      clearInterval(intervalo);
+    });
+
+    //volver a poner el intervalo cuando saquen el cursor del slideshow
+    slideshow.current.addEventListener('mouseleave', () => {
+      intervalo = setInterval(() => {
+        next();
+      }, 5000);
+    });
+  }, []);
+
+  */

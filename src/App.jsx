@@ -5,9 +5,8 @@ import Loader from './components/Loader/Loader';
 import Navbar from './components/Navbar/Navbar';
 import HomePage from './components/home-page/Home';
 import About from './components/About/Aboutme';
-import Footer from './components/Footer/Footer';
 import Proyects from './components/Proyects/Proyects';
-
+import Footer from './components/Footer/Footer';
 function App() {
   const [loading, setLoading] = useState(false);
 

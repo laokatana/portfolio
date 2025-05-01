@@ -64,7 +64,7 @@ const Menu = styled.div`
   position: fixed;
   top: 0;
   left: 0;
-  height: 100vh;
+  height: 30vh;
   width: ${({ open }) => (open ? '100%' : '70%')};
   background: transparent;
   padding: 4rem 2rem;
@@ -83,7 +83,6 @@ const Menu = styled.div`
     width: 100%;
     height: auto;
     position: static;
-    background: transparent;
     transform: none;
     padding: 0;
     backdrop-filter: none;

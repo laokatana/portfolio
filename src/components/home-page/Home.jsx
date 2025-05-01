@@ -37,6 +37,64 @@ const ContainerHome = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+
+  @media (min-width: 768px) {
+    background-image: url('/sobremi.gif');
+    background-size: cover;
+    background-position: center bottom;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+  }
+  @media (max-width: 400px) {
+    background-image: url('/sobremi.gif');
+    background-size: cover;
+    background-position: center bottom;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+  }
+
+  @media (max-width: 375px) {
+    background-image: url('/sobremi.gif');
+    background-size: cover;
+    background-position: center bottom;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+  }
+  @media (max-width: 320px) {
+    background-image: url('/sobremi.gif');
+    background-size: cover;
+    background-position: center bottom;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+  }
+  @media (max-width: 280px) {
+    background-image: url('/sobremi.gif');
+    background-size: cover;
+    background-position: center bottom;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+  }
+  @media (max-width: 240px) {
+    background-image: url('/sobremi.gif');
+    background-size: cover;
+    background-position: center bottom;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+  }
+  @media (max-width: 200px) {
+    background-image: url('/sobremi.gif');
+    background-size: cover;
+    background-position: center bottom;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+  }
+  @media (max-width: 160px) {
+    background-image: url('/sobremi.gif');
+    background-size: cover;
+    background-position: center bottom;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+  }
 `;
 
 const SectionHome = styled.section`
@@ -75,16 +133,6 @@ const TextHome = styled.p`
   @media (min-width: 1280px) {
     margin-top: 6rem;
   }
-`;
-
-const MarcaOculta = styled.div`
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 80px;
-  height: 30px;
-  background-color: black; // o el color que se camufle mejor
-  z-index: 2;
 `;
 
 const Developer = () => {

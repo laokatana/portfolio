@@ -1,43 +1,15 @@
-import React, { useRef, useState, useEffect } from 'react';
+import React, { useRef } from 'react';
+import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 import styled from 'styled-components';
 
-const projects = [
-  {
-    link: 'https://fluffy-dusk-ece8ea.netlify.app/',
-    image: '/images/criptomania.jpg',
-    description: [
-      'Proyecto Autodidacta',
-      'Cotizador de criptomonedas',
-      'Herramientas: React y Styled Components',
-    ],
-  },
-  {
-    link: 'https://laokatana.github.io/anotador-de-tareas/',
-    image: '/images/task.jpg',
-    description: [
-      'Proyecto Programa ONE - Alura',
-      'Anotador de tareas',
-      'Herramientas: HTML, CSS, JavaScript',
-    ],
-  },
-  {
-    link: 'https://github.com/laokatana/API-de-Autores',
-    image: '/images/autores.jpg',
-    description: [
-      'Programa IntegrarTec',
-      'API de autores (back-end)',
-      'Herramientas: NodeJs, MongoDB, Express',
-    ],
-  },
-];
-
-// Styled Components (igual que antes)
+// ======== STYLED COMPONENTS ======== //
 
 const SectionContainer = styled.section`
   background-color: black;
   width: 100%;
   min-height: 100vh;
   padding: 60px 20px;
+  margin: 0 auto;
   text-align: center;
   color: #d8d085;
   text-shadow: 2px 2px 8px #ff0000;
@@ -52,120 +24,200 @@ const Title = styled.h2`
 `;
 
 const Description = styled.div`
-  font-size: 18px;
-  max-width: 800px;
+  max-width: 900px;
   margin: 0 auto 40px auto;
-`;
+  text-align: justify;
+  font-size: 18px;
+  line-height: 1.6;
+  padding: 0 20px;
+  color: #e0e0c7;
 
-const CarouselContainer = styled.div`
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-`;
-
-const CardsContainer = styled.div`
-  display: flex;
-  overflow-x: hidden;
-  gap: 20px;
-  padding: 20px 0;
-  width: 90%;
-  transition: transform 0.3s ease;
-
-  &::-webkit-scrollbar {
-    display: none; /* Chrome, Safari */
+  @media (max-width: 768px) {
+    font-size: 16px;
   }
 `;
 
-const Card = styled.div`
-  flex: 0 0 600px; /* Ancho aumentado */
-  background-color: #1a1a1a;
-  border-radius: 15px;
+const ContenedorPrincipal = styled.div`
+  position: relative;
   overflow: hidden;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.7);
-  transition: transform 0.3s;
-
-  &:hover {
-    transform: scale(1.03);
-  }
+  margin-top: 30px;
 `;
 
-const CardImage = styled.img`
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
+const ContenedorSlidehshow = styled.div`
+  display: flex;
+  flex-wrap: nowrap;
 `;
 
-const CardText = styled.div`
-  padding: 15px;
-  color: #ceb029;
-  background: rgba(0, 0, 0, 0.7);
-  p {
-    margin: 5px 0;
-  }
-`;
-
-const ArrowButton = styled.button`
-  background: none;
-  border: none;
-  color: #fff;
-  font-size: 30px;
-  cursor: pointer;
-  padding: 10px;
-  margin: 0 10px;
-  transition: 0.3s;
-  z-index: 10;
+const Slide = styled.div`
+  background-color: black;
+  min-width: 100%;
+  transition: 0.3s ease all;
+  z-index: 9;
+  max-height: 500px;
   position: relative;
-
-  &:hover {
-    color: #daa89d;
+  img {
+    width: 100%;
+    vertical-align: top;
   }
-
-  ${(props) =>
-    props.$right &&
-    `
-    order: 2;
-  `}
 `;
 
-const ProjectsSection = () => {
-  const sliderRef = useRef(null);
-  const scrollAmount = 600; // Aumentamos el tamaño del scroll para adaptarse al nuevo ancho de la tarjeta
-  const totalCards = projects.length;
+const TextoSlide = styled.div`
+  background: rgba(0, 0, 0, 0.5);
+  color: #ceb029;
+  text-shadow: 2px 2px 8px #ff0000;
+  width: 100%;
+  padding: 10px 60px;
+  text-align: center;
+  position: absolute;
+  bottom: 0;
+  @media screen and (max-width: 700px) {
+    position: relative;
+  }
+`;
 
-  const moveSlider = (direction) => {
-    const container = sliderRef.current;
-    const firstCard = container.firstElementChild;
-    const lastCard = container.lastElementChild;
+const Controles = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  z-index: 20;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+`;
 
-    if (direction === 'left') {
-      if (container.scrollLeft === 0) {
-        // Mover al último conjunto de tarjetas
-        container.scrollTo({
-          left: container.scrollWidth - container.clientWidth,
-          behavior: 'smooth',
-        });
-      } else {
-        container.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
-      }
-    } else {
-      if (
-        container.scrollLeft + container.clientWidth ===
-        container.scrollWidth
-      ) {
-        // Mover al primer conjunto de tarjetas
-        container.scrollTo({
-          left: 0,
-          behavior: 'smooth',
-        });
-      } else {
-        container.scrollBy({ left: scrollAmount, behavior: 'smooth' });
-      }
+const Boton = styled.button`
+  pointer-events: all;
+  background: transparent;
+  color: white;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  width: 75px;
+  height: 25%;
+  text-align: center;
+  position: absolute;
+  transition: 0.3s ease all;
+  &:hover {
+    background: rgba(218, 183, 87, 0.8);
+    color: black;
+
+    p {
+      color: rgb(12, 12, 12);
+    }
+  }
+  ${(props) => (props.$derecho ? 'right: 0' : 'left: 0')};
+  p {
+    font-size: 25px;
+    filter: ${(props) =>
+      props.$derecho
+        ? 'drop-shadow(-2px 0px 0px #aa0000)'
+        : 'drop-shadow(2px 0px 0px #aa0000)'};
+  }
+`;
+
+// ========== SLIDER COMPONENT ========== //
+
+const Slider = ({ slides }) => {
+  const slideshow = useRef(null);
+
+  const next = () => {
+    if (slideshow.current.children.length > 0) {
+      const firstElement = slideshow.current.children[0];
+      slideshow.current.style.transition = `1000ms ease-out all`;
+      const tamanioSlide = slideshow.current.children[0].offsetWidth;
+      slideshow.current.style.transform = `translateX(-${tamanioSlide}px)`;
+
+      const transicion = () => {
+        slideshow.current.style.transition = 'none';
+        slideshow.current.style.transform = `translateX(0)`;
+        slideshow.current.appendChild(firstElement);
+        slideshow.current.removeEventListener('transitionend', transicion);
+      };
+      slideshow.current.addEventListener('transitionend', transicion);
     }
   };
 
-  // Generar un arreglo de proyectos duplicado para el efecto infinito
-  const duplicatedProjects = [...projects, ...projects, ...projects];
+  const previous = () => {
+    if (slideshow.current.children.length > 0) {
+      const index = slideshow.current.children.length - 1;
+      const ultimateElement = slideshow.current.children[index];
+      slideshow.current.insertBefore(
+        ultimateElement,
+        slideshow.current.firstChild
+      );
+      slideshow.current.style.transition = 'none';
+      const tamanioSlide = slideshow.current.children[0].offsetWidth;
+      slideshow.current.style.transform = `translateX(-${tamanioSlide}px)`;
+      setTimeout(() => {
+        slideshow.current.style.transition = '1000ms ease-out all';
+        slideshow.current.style.transform = `translateX(0)`;
+      }, 30);
+    }
+  };
+
+  return (
+    <ContenedorPrincipal>
+      <ContenedorSlidehshow ref={slideshow}>{slides}</ContenedorSlidehshow>
+      <Controles>
+        <Boton onClick={previous}>
+          <p>←</p>
+        </Boton>
+        <Boton $derecho onClick={next}>
+          <p>→</p>
+        </Boton>
+      </Controles>
+    </ContenedorPrincipal>
+  );
+};
+
+// ========== MAIN COMPONENT ========== //
+
+const ProjectsSection = () => {
+  const slideItems = (
+    <>
+      <Slide>
+        <a href="https://fluffy-dusk-ece8ea.netlify.app/" target="_blank">
+          <img src="/images/criptomania.jpg" alt="" />
+        </a>
+        <TextoSlide>
+          <p>Proyecto de forma Autodidacta</p>
+          <p>Cotizador de criptomonedas</p>
+          <p>Herramientas: React y Styled Components</p>
+        </TextoSlide>
+      </Slide>
+
+      <Slide>
+        <a
+          href="https://laokatana.github.io/anotador-de-tareas/"
+          target="_blank"
+        >
+          <img src="/images/task.jpg" alt="" />
+        </a>
+        <TextoSlide>
+          <p>Proyecto del Programa ONE que impartió Alura</p>
+          <p>Anotador de tareas</p>
+          <p>Herramientas: HTML, CSS, JavaScript</p>
+        </TextoSlide>
+      </Slide>
+
+      <Slide>
+        <a href="https://github.com/laokatana/API-de-Autores" target="_blank">
+          <img src="/images/autores.jpg" alt="" />
+        </a>
+        <TextoSlide>
+          <p>Programa IntegrarTec</p>
+          <p>Curso: Programación Web Full Stack (MERN)</p>
+          <p>Proyecto backend: API de autores</p>
+          <p>Herramientas: NodeJs, MongoDB, Express</p>
+        </TextoSlide>
+      </Slide>
+    </>
+  );
 
   return (
     <SectionContainer>
@@ -177,40 +229,18 @@ const ProjectsSection = () => {
           aprendizaje, tanto en cursos como IntegrarTec (MERN Stack) y el
           programa ONE de Alura, como en proyectos autodidactas y experiencias
           reales. Durante estos proyectos, he aplicado una amplia variedad de
-          tecnologías y herramientas,Las tecnologías utilizadas incluyen: <br />
+          tecnologías y herramientas. Las tecnologías utilizadas incluyen:{' '}
+          <br />
           Frontend: HTML, CSS, React, JavaScript. <br />
           Backend: Node.js, Express, TypeScript. <br />
-          Base de datos: MongoDB (no relacional), SQL (bases de datos
-          relacionales). Cada proyecto refleja una combinación de conocimientos
-          técnicos adquiridos a través de cursos y la resolución de problemas
-          reales, permitiéndome desarrollar soluciones funcionales y escalables,
-          mientras continúo perfeccionando mis habilidades en la gestión y
-          optimización de bases de datos de diversas arquitecturas.
+          Base de datos: MongoDB (no relacional), SQL (relacionales). Cada
+          proyecto refleja una combinación de conocimientos técnicos adquiridos
+          a través de cursos y la resolución de problemas reales, permitiéndome
+          desarrollar soluciones funcionales y escalables mientras perfecciono
+          mis habilidades en la gestión y optimización de bases de datos.
         </p>
       </Description>
-
-      <CarouselContainer>
-        <ArrowButton onClick={() => moveSlider('left')}>←</ArrowButton>
-
-        <CardsContainer ref={sliderRef}>
-          {duplicatedProjects.map((project, index) => (
-            <Card key={index}>
-              <a href={project.link} target="_blank" rel="noopener noreferrer">
-                <CardImage src={project.image} alt="Proyecto" />
-              </a>
-              <CardText>
-                {project.description.map((line, idx) => (
-                  <p key={idx}>{line}</p>
-                ))}
-              </CardText>
-            </Card>
-          ))}
-        </CardsContainer>
-
-        <ArrowButton $right onClick={() => moveSlider('right')}>
-          →
-        </ArrowButton>
-      </CarouselContainer>
+      <Slider slides={slideItems} />
     </SectionContainer>
   );
 };
