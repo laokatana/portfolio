@@ -1,12 +1,12 @@
 import React from 'react';
 import styled, { keyframes } from 'styled-components';
 
+// Animación del texto
 const transformando = keyframes`
   0%, 100% {
     opacity: 0.8;
     text-shadow: 0 0 5px rgba(187, 27, 27, 0.3);
   }
-  
   25% {
     opacity: 1;
     text-shadow: 0 0 10px rgba(131, 39, 16, 0.7);
@@ -15,60 +15,43 @@ const transformando = keyframes`
     opacity: 1;
     text-shadow: 2px 2px 7px #da2323;
   }
-
   75% {
     opacity: 1;
     text-shadow: 0 0 10px rgba(165, 62, 31, 0.7);
   }
-
-
 `;
 
+// Contenedor principal
 const ContainerHome = styled.div`
+  position: relative;
   min-height: 100vh;
   width: 100%;
-  background-image: url('/sobremi.gif');
-  background-size: cover;
-  background-position: center bottom;
-  background-repeat: no-repeat;
-  background-attachment: scroll;
-
+  overflow: hidden;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+`;
 
-  @media (min-width: 768px) {
-    background-image: url('/sobremi.gif');
-    background-size: cover;
-    background-position: center bottom;
-    background-repeat: no-repeat;
-    background-attachment: scroll;
-  }
-  @media (max-width: 400px) {
-    background-image: url('/sobremi.gif');
-    background-size: cover;
-    background-position: center bottom;
-    background-repeat: no-repeat;
-    background-attachment: scroll;
-  }
+// Fondo con versiones mobile y desktop
+const Background = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('/sobremi.gif');
+  background-size: cover;
+  background-position: center bottom;
+  background-repeat: no-repeat;
+  z-index: -1;
 
-  @media (max-width: 375px) {
+  @media (max-width: 768px) {
     background-image: url('/sobremi.gif');
-    background-size: cover;
-    background-position: center bottom;
-    background-repeat: no-repeat;
-    background-attachment: scroll;
-  }
-  @media (max-width: 320px) {
-    background-image: url('/sobremi.gif');
-    background-size: cover;
-    background-position: center bottom;
-    background-repeat: no-repeat;
-    background-attachment: scroll;
   }
 `;
 
+// Contenido
 const SectionHome = styled.section`
   width: 100%;
   margin: 0 auto;
@@ -107,9 +90,10 @@ const TextHome = styled.p`
   }
 `;
 
-const Developer = () => {
+const Home = () => {
   return (
     <ContainerHome>
+      <Background />
       <SectionHome>
         <Title>LAO</Title>
         <Title>LARRAGUETA</Title>
@@ -119,4 +103,4 @@ const Developer = () => {
   );
 };
 
-export default Developer;
+export default Home;
