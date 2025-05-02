@@ -31,7 +31,7 @@ const ContainerHome = styled.div`
   background-size: cover;
   background-position: center bottom;
   background-repeat: no-repeat;
-  background-attachment: fixed;
+  background-attachment: scroll;
 
   display: flex;
   flex-direction: column;
@@ -43,14 +43,14 @@ const ContainerHome = styled.div`
     background-size: cover;
     background-position: center bottom;
     background-repeat: no-repeat;
-    background-attachment: fixed;
+    background-attachment: scroll;
   }
   @media (max-width: 400px) {
     background-image: url('/sobremi.gif');
     background-size: cover;
     background-position: center bottom;
     background-repeat: no-repeat;
-    background-attachment: fixed;
+    background-attachment: scroll;
   }
 
   @media (max-width: 375px) {
@@ -58,42 +58,14 @@ const ContainerHome = styled.div`
     background-size: cover;
     background-position: center bottom;
     background-repeat: no-repeat;
-    background-attachment: fixed;
+    background-attachment: scroll;
   }
   @media (max-width: 320px) {
     background-image: url('/sobremi.gif');
     background-size: cover;
     background-position: center bottom;
     background-repeat: no-repeat;
-    background-attachment: fixed;
-  }
-  @media (max-width: 280px) {
-    background-image: url('/sobremi.gif');
-    background-size: cover;
-    background-position: center bottom;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-  }
-  @media (max-width: 240px) {
-    background-image: url('/sobremi.gif');
-    background-size: cover;
-    background-position: center bottom;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-  }
-  @media (max-width: 200px) {
-    background-image: url('/sobremi.gif');
-    background-size: cover;
-    background-position: center bottom;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-  }
-  @media (max-width: 160px) {
-    background-image: url('/sobremi.gif');
-    background-size: cover;
-    background-position: center bottom;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
+    background-attachment: scroll;
   }
 `;
 
