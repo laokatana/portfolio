@@ -1,5 +1,6 @@
 import React from 'react';
 import styled, { keyframes } from 'styled-components';
+import { forwardRef } from 'react';
 
 // Animación del texto
 const transformando = keyframes`
@@ -90,9 +91,9 @@ const TextHome = styled.p`
   }
 `;
 
-const Home = () => {
+const Home = forwardRef((props, ref) => {
   return (
-    <ContainerHome>
+    <ContainerHome ref={ref}>
       <Background />
       <SectionHome>
         <Title>LAO</Title>
@@ -101,6 +102,6 @@ const Home = () => {
       </SectionHome>
     </ContainerHome>
   );
-};
+});
 
 export default Home;

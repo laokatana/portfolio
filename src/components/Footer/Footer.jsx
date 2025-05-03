@@ -1,5 +1,6 @@
 import React from 'react';
 import styled, { keyframes } from 'styled-components';
+import { forwardRef } from 'react';
 
 // Animación mezcladito (para los links)
 const mezcladito = keyframes`
@@ -117,9 +118,9 @@ const FooterText = styled.p`
   font-size: 0.9rem;
 `;
 
-const Footer = () => {
+const Footer = forwardRef((props, ref) => {
   return (
-    <FooterContainer>
+    <FooterContainer ref={ref}>
       <FooterSection>
         <FooterTitle>Contacto</FooterTitle>
 
@@ -158,6 +159,6 @@ const Footer = () => {
       <FooterText>Email</FooterText>
     </FooterContainer>
   );
-};
+});
 
 export default Footer;

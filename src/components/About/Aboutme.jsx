@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import styled, { keyframes } from 'styled-components';
+import { forwardRef } from 'react';
 
 // Animación fade-slide del texto dentro del InfoBox
 const fadeSlide = keyframes`
@@ -124,7 +125,7 @@ const infoContent = {
 };
 
 // Componente principal
-const About = () => {
+const About = forwardRef((props, ref) => {
   const [activeInfo, setActiveInfo] = useState(null); // Estado que guarda el botón activo
 
   // Maneja los clicks: activa uno o desactiva si es el mismo
@@ -133,7 +134,7 @@ const About = () => {
   };
 
   return (
-    <AboutContainer>
+    <AboutContainer ref={ref}>
       <ButtonSection>
         {/* Generamos cada botón dinámicamente */}
         {Object.keys(infoContent).map((key) => (
@@ -151,6 +152,6 @@ const About = () => {
       </ButtonSection>
     </AboutContainer>
   );
-};
+});
 
 export default About;

@@ -1,6 +1,7 @@
 import React, { useRef } from 'react';
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 import styled from 'styled-components';
+import { forwardRef } from 'react';
 
 // ======== STYLED COMPONENTS ======== //
 
@@ -177,7 +178,7 @@ const Slider = ({ slides }) => {
 
 // ========== MAIN COMPONENT ========== //
 
-const ProjectsSection = () => {
+const ProjectsSection = forwardRef((props, ref) => {
   const slideItems = (
     <>
       <Slide>
@@ -220,7 +221,7 @@ const ProjectsSection = () => {
   );
 
   return (
-    <SectionContainer>
+    <SectionContainer ref={ref}>
       <Title>Proyectos</Title>
 
       <Description>
@@ -243,6 +244,6 @@ const ProjectsSection = () => {
       <Slider slides={slideItems} />
     </SectionContainer>
   );
-};
+});
 
 export default ProjectsSection;

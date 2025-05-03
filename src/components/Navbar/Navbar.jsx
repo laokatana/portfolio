@@ -2,11 +2,7 @@ import React, { useState, useEffect } from 'react';
 import styled, { keyframes } from 'styled-components';
 
 // animacion para los elementos del menu
-// la animacion es un fade y un slide hacia la derecha
-// la animacion es de 0.5s y se aplica a cada elemento del menu con un delay de 0.2s entre cada uno
-// la animacion se aplica a los elementos del menu cuando el menu esta abierto
-// la animacion se aplica a los elementos del menu cuando el menu esta cerrado
-// la animacion se aplica a los elementos del menu cuando el menu esta abierto y se cierra
+
 const fadeSlide = keyframes`
   from {
     opacity: 0;
@@ -174,7 +170,7 @@ const Hamburger = styled.div`
 // aqui esta la funciones de scroll para cada uno de los elementos del menu
 // y su logica para abrir y cerrar el menu
 // aqui esta la logica para el scroll y el menu
-const Navbar = () => {
+const Navbar = ({ scrollToRef, refs }) => {
   const mobile = 768;
   const desktop = 1024;
   const desktopXl = 1400;
@@ -203,41 +199,6 @@ const Navbar = () => {
     setMenuOpen(false);
   };
 
-  const home = () =>
-    window.scrollTo(
-      { top: 0, left: 0, behavior: 'smooth' },
-      console.log('home')
-    );
-  const aboutMe = () => {
-    if (screen.width <= mobile) {
-      window.scrollTo(
-        { top: 520, left: 0, behavior: 'smooth' },
-        console.log('aboutMe')
-      );
-    } else {
-      window.scrollTo(
-        { top: 870, left: 0, behavior: 'smooth' },
-        console.log('aboutMe')
-      );
-    }
-  };
-  const proyects = () => {
-    if (screen.width >= desktop || screen.width >= desktopXl) {
-      window.scrollTo({ top: 1600, left: 0, behavior: 'smooth' });
-      console.log('proyects');
-    } else {
-      window.scrollTo(
-        { top: 1050, left: 0, behavior: 'smooth' },
-        console.log('proyects')
-      );
-    }
-  };
-  const contacto = () =>
-    window.scrollTo(
-      { top: 3500, left: 0, behavior: 'smooth' },
-      console.log('contacto')
-    );
-
   return (
     <>
       <Nav className={scrollHeight > 20 ? 'scrolling' : ''}>
@@ -250,10 +211,16 @@ const Navbar = () => {
           <span />
         </Hamburger>
         <Menu open={menuOpen}>
-          <MenuItem onClick={() => handleClick(home)}>Home</MenuItem>
-          <MenuItem onClick={() => handleClick(aboutMe)}>About me</MenuItem>
-          <MenuItem onClick={() => handleClick(proyects)}>Proyects</MenuItem>
-          <MenuItem onClick={() => handleClick(contacto)}>Contact</MenuItem>
+          <MenuItem onClick={() => scrollToRef(refs.homeRef)}>Home</MenuItem>
+          <MenuItem onClick={() => scrollToRef(refs.aboutMeRef)}>
+            About me
+          </MenuItem>
+          <MenuItem onClick={() => scrollToRef(refs.proyectsRef)}>
+            Proyects
+          </MenuItem>
+          <MenuItem onClick={() => scrollToRef(refs.footerRef)}>
+            Contact
+          </MenuItem>
         </Menu>
       </Nav>
       <Overlay open={menuOpen} onClick={() => setMenuOpen(false)} />
