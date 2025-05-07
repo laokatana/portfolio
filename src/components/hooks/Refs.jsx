@@ -1,4 +1,5 @@
 /* eslint-disable prettier/prettier */
+
 import { useRef } from 'react';
 
 export const useScrollRef = () => {
@@ -13,6 +14,6 @@ export const useScrollRef = () => {
 
   return {
     refs: { homeRef, aboutMeRef, proyectsRef, footerRef },
-    scrollToRef
+    scrollToRef,
   };
 };

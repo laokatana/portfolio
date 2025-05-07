@@ -1,5 +1,4 @@
 import React, { useRef } from 'react';
-import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 import styled from 'styled-components';
 import { forwardRef } from 'react';
 
@@ -12,8 +11,8 @@ const SectionContainer = styled.section`
   padding: 60px 20px;
   margin: 0 auto;
   text-align: center;
-  color: #d8d085;
-  text-shadow: 2px 2px 8px #ff0000;
+  color: #ceb029;
+  text-shadow: 2px 2px 8pxrgb (209, 72, 72);
 `;
 
 const Title = styled.h2`
@@ -65,7 +64,7 @@ const Slide = styled.div`
 const TextoSlide = styled.div`
   background: rgba(0, 0, 0, 0.5);
   color: #ceb029;
-  text-shadow: 2px 2px 8px #ff0000;
+  text-shadow: 2px 2px 8pxrgb (209, 72, 72);
   width: 100%;
   padding: 10px 60px;
   text-align: center;
@@ -104,11 +103,12 @@ const Boton = styled.button`
   position: absolute;
   transition: 0.3s ease all;
   &:hover {
-    background: rgba(218, 183, 87, 0.8);
+    background: transparent;
+    color: rgb(226, 213, 157);
     color: black;
 
     p {
-      color: rgb(12, 12, 12);
+      color: rgb(245, 225, 225);
     }
   }
   ${(props) => (props.$derecho ? 'right: 0' : 'left: 0')};

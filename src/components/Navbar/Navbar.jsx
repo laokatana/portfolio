@@ -44,6 +44,7 @@ const Overlay = styled.div`
   width: 100vw;
   background: transparent;
   z-index: 99;
+  pointer-events: none;
 
   @media (min-width: 768px) {
     display: none;
@@ -71,7 +72,7 @@ const Menu = styled.div`
   backdrop-filter: none;
   z-index: 100;
 
-  @media (min-width: 992px) {
+  @media (min-width: 768px) {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
@@ -82,17 +83,17 @@ const Menu = styled.div`
     transform: none;
     padding: 0;
     backdrop-filter: none;
+    pointer-events: auto;
   }
 `;
-//aqui definimos el menu item y sus estilos
+//aca defini el menu item y sus estilos
 // el menu item es cada uno de los elementos del menu
-// tanto su mediaquerys como su animacion y su posicion
+
 const MenuItem = styled.div`
   color: #fcd34d;
   cursor: pointer;
   text-shadow: 1px 1px 8px #da2323;
   transition: all 0.2s ease;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
   width: fit-content;
   padding-bottom: 0.5rem;
 
@@ -134,8 +135,8 @@ const MenuItem = styled.div`
 `;
 //aqui definimos el hamburger y sus estilos
 // el hamburger es el icono que aparece cuando el menu esta cerrado
-// tanto su mediaquerys como su animacion y su posicion
-const Hamburger = styled.div`
+
+const Hamburger = styled.div.attrs({ role: 'button', tabIndex: 0 })`
   display: none;
   flex-direction: column;
   cursor: pointer;
@@ -166,14 +167,11 @@ const Hamburger = styled.div`
     display: flex;
   }
 `;
-//esta funcion es el navbar y su logica
-// aqui esta la funciones de scroll para cada uno de los elementos del menu
-// y su logica para abrir y cerrar el menu
-// aqui esta la logica para el scroll y el menu
+//este es el navbar y toda su logica con su respectiva funcionalidad
+// aqui esta la funciones de scroll para cada uno de los elementos del referenciados
+
 const Navbar = ({ scrollToRef, refs }) => {
   const mobile = 768;
-  const desktop = 1024;
-  const desktopXl = 1400;
 
   const [scrollHeight, setScrollHeight] = useState(0);
   const [menuOpen, setMenuOpen] = useState(false);
@@ -211,14 +209,24 @@ const Navbar = ({ scrollToRef, refs }) => {
           <span />
         </Hamburger>
         <Menu open={menuOpen}>
-          <MenuItem onClick={() => scrollToRef(refs.homeRef)}>Home</MenuItem>
-          <MenuItem onClick={() => scrollToRef(refs.aboutMeRef)}>
+          <MenuItem
+            onClick={() => handleClick(() => scrollToRef(refs.homeRef))}
+          >
+            Home
+          </MenuItem>
+          <MenuItem
+            onClick={() => handleClick(() => scrollToRef(refs.aboutMeRef))}
+          >
             About me
           </MenuItem>
-          <MenuItem onClick={() => scrollToRef(refs.proyectsRef)}>
+          <MenuItem
+            onClick={() => handleClick(() => scrollToRef(refs.proyectsRef))}
+          >
             Proyects
           </MenuItem>
-          <MenuItem onClick={() => scrollToRef(refs.footerRef)}>
+          <MenuItem
+            onClick={() => handleClick(() => scrollToRef(refs.footerRef))}
+          >
             Contact
           </MenuItem>
         </Menu>

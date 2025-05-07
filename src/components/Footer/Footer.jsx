@@ -45,7 +45,7 @@ const FooterContainer = styled.div`
 
   background-image: url('/footer4.gif');
   background-position: center bottom;
-  background-size: 108%;
+  background-size: 100%;
   background-repeat: no-repeat;
   background-attachment: fixed;
   padding: 0 10px;
@@ -114,14 +114,12 @@ const FooterItem = styled.a`
 
 const FooterText = styled.p`
   color: white;
-  margin-top: 0.5rem;
-  font-size: 0.9rem;
 `;
 
 const Footer = forwardRef((props, ref) => {
   return (
-    <FooterContainer ref={ref}>
-      <FooterSection>
+    <FooterContainer>
+      <FooterSection ref={ref}>
         <FooterTitle>Contacto</FooterTitle>
 
         <FooterItem
