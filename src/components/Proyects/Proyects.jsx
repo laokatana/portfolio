@@ -5,7 +5,7 @@ import { forwardRef } from 'react';
 // ======== STYLED COMPONENTS ======== //
 
 const SectionContainer = styled.section`
-  background-color: black;
+  background: black;
   width: 100%;
   min-height: 100vh;
   padding: 60px 20px;

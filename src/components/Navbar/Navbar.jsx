@@ -14,7 +14,6 @@ const fadeSlide = keyframes`
   }
 `;
 
-// aqui definimos el navbar y sus estilos
 const Nav = styled.nav`
   display: flex;
   justify-content: space-between;
@@ -33,8 +32,6 @@ const Nav = styled.nav`
   }
 `;
 
-// aqui definimos el overlay y sus estilos
-// el overlay es el fondo que aparece cuando el menu esta abierto
 const Overlay = styled.div`
   display: ${({ open }) => (open ? 'block' : 'none')};
   position: fixed;
@@ -42,7 +39,6 @@ const Overlay = styled.div`
   left: 0;
   height: 100vh;
   width: 100vw;
-  background: transparent;
   z-index: 99;
   pointer-events: none;
 
@@ -51,9 +47,6 @@ const Overlay = styled.div`
   }
 `;
 
-// aqui definimos el menu y sus estilos
-// el menu es el contenedor de los elementos del menu
-// tanto su mediaquerys como su animacion y su posicion
 const Menu = styled.div`
   display: flex;
   flex-direction: column;
@@ -69,10 +62,9 @@ const Menu = styled.div`
   transition:
     transform 0.3s ease-in-out,
     width 0.3s ease-in-out;
-  backdrop-filter: none;
   z-index: 100;
 
-  @media (min-width: 768px) {
+  @media (min-width: 770px) {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
@@ -86,8 +78,6 @@ const Menu = styled.div`
     pointer-events: auto;
   }
 `;
-//aca defini el menu item y sus estilos
-// el menu item es cada uno de los elementos del menu
 
 const MenuItem = styled.div`
   color: #fcd34d;
@@ -133,10 +123,8 @@ const MenuItem = styled.div`
     }
   }
 `;
-//aqui definimos el hamburger y sus estilos
-// el hamburger es el icono que aparece cuando el menu esta cerrado
 
-const Hamburger = styled.div.attrs({ role: 'button', tabIndex: 0 })`
+const Hamburger = styled.div`
   display: none;
   flex-direction: column;
   cursor: pointer;
@@ -208,6 +196,7 @@ const Navbar = ({ scrollToRef, refs }) => {
           <span />
           <span />
         </Hamburger>
+
         <Menu open={menuOpen}>
           <MenuItem
             onClick={() => handleClick(() => scrollToRef(refs.homeRef))}

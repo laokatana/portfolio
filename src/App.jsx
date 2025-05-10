@@ -10,30 +10,18 @@ import Proyects from './components/Proyects/Proyects';
 import Footer from './components/Footer/Footer';
 
 function App() {
-  const [loading, setLoading] = useState(false);
   const { refs, scrollToRef } = useScrollRef();
 
-  useEffect(() => {
-    setLoading(true);
-    setTimeout(() => {
-      setLoading(false);
-    }, 3000);
-  }, []);
-
   return (
-    <div className="App" style={{ overflowX: 'hidden' }}>
-      {loading ? (
-        <Loader />
-      ) : (
-        <>
-          <Navbar scrollToRef={scrollToRef} refs={refs} />
-          <HomePage ref={refs.homeRef} />
-          <About ref={refs.aboutMeRef} />
-          <Proyects ref={refs.proyectsRef} />
-          <Footer ref={refs.footerRef} />
-        </>
-      )}
-    </div>
+    <Loader>
+      <div className="App" style={{ overflowX: 'hidden' }}>
+        <Navbar scrollToRef={scrollToRef} refs={refs} />
+        <HomePage ref={refs.homeRef} />
+        <About ref={refs.aboutMeRef} />
+        <Proyects ref={refs.proyectsRef} />
+        <Footer ref={refs.footerRef} />
+      </div>
+    </Loader>
   );
 }
 

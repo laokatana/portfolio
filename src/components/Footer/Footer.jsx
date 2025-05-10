@@ -2,28 +2,6 @@ import React from 'react';
 import styled, { keyframes } from 'styled-components';
 import { forwardRef } from 'react';
 
-// Animación mezcladito (para los links)
-const mezcladito = keyframes`
-  0% {
-    color: #a5992d;
-    text-shadow: 2px 2px 8px #ff0000;
-  }
-  50% {
-    right: 1em;
-  }
-  65% {
-    color: #c48220cb;
-  }
-  75% {
-    color: #ccc90d;
-    text-shadow: 2px 2px 8px #ff0000;
-  }
-  100% {
-    color: #bd9616;
-    text-shadow: 2px 2px 8px #ff0000;
-  }
-`;
-
 // Animación mezcladito2 (para el título)
 const mezcladito2 = keyframes`
   0%, 100% {
@@ -32,12 +10,12 @@ const mezcladito2 = keyframes`
   }
   50% {
     opacity: 0.7;
-    transform: translateY(px);
+    transform: translateY(1px);
   }
 `;
 
 const FooterContainer = styled.div`
-  height: 100%;
+  height: 100vdh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -52,9 +30,9 @@ const FooterContainer = styled.div`
 
   box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.3);
 
-  @media (max-width: 768px) {
-    background-size: 300%;
-    background-attachment: scroll;
+  @media (max-width: 770px) {
+    background-size: 100%;
+    height: 100vh;
   }
 
   @media (max-width: 480px) {
@@ -68,15 +46,14 @@ const FooterSection = styled.section`
   height: 100vh;
   align-items: center;
   justify-content: center;
-  gap: 2.25rem;
+  gap: 2rem;
   font-size: 1.5rem;
-  padding: 0 10px;
-  padding-bottom: 15rem;
+  padding: 2rem 10px;
 
   @media (max-width: 768px) {
     height: auto;
     padding-top: 4rem;
-    margin-top: 15rem;
+    margin-top: 1rem;
   }
 `;
 
@@ -85,7 +62,6 @@ const FooterTitle = styled.p`
   color: rgba(201, 185, 42, 0.91);
   text-shadow: 1px 1px 1px #da2323;
   text-align: center;
-  padding-bottom: 2.75rem;
 
   @media (max-width: 768px) {
     font-size: 2.25rem;
@@ -113,7 +89,97 @@ const FooterItem = styled.a`
 `;
 
 const FooterText = styled.p`
-  color: white;
+  color: rgb(245, 240, 247);
+  text-align: center;
+  font-size: 1.25rem;
+  padding: 0 10px;
+  margin-bottom: 2rem;
+  animation: ${mezcladito2} 2s ease-in-out infinite;
+  animation-delay: 0.5s;
+  text-shadow: 1px 1px 1px rgb(231, 216, 216);
+
+  @media (max-width: 768px) {
+    font-size: 1.1rem;
+  }
+  @media (max-width: 480px) {
+    font-size: 1rem;
+  }
+`;
+
+const FormContainer = styled.form`
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  margin: 0 auto;
+  padding: 2rem;
+  width: 100%;
+  max-width: 450px;
+  background-color: rgba(0, 0, 0, 0.65);
+  border-radius: 10px;
+  color: #f5f5f5;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
+
+  @media (max-width: 768px) {
+    max-width: 90%;
+    padding: 1rem;
+  }
+  @media (max-width: 480px) {
+    max-width: 100%;
+    padding: 0.5rem;
+  }
+`;
+
+const Label = styled.label`
+  display: flex;
+  flex-direction: column;
+  font-size: 1.2rem;
+  gap: 0.5rem;
+  @media (max-width: 768px) {
+    font-size: 0.9rem;
+  }
+  @media (max-width: 480px) {
+    font-size: 0.8rem;
+  }
+`;
+
+const Input = styled.input`
+  padding: 0.75rem;
+  border-radius: 5px;
+  border: none;
+  background-color: #1f1f1f;
+  color: #fff;
+  font-size: 1rem;
+
+  @media (max-width: 768px) {
+    font-size: 0.9rem;
+  }
+`;
+
+const TextArea = styled.textarea`
+  padding: 0.75rem;
+  border-radius: 5px;
+  border: none;
+  background-color: #1f1f1f;
+  color: #fff;
+  font-size: 1rem;
+  resize: none;
+`;
+
+const SubmitButton = styled.button`
+  padding: 0.75rem;
+  background-color: rgba(230, 200, 34, 0.91);
+  color: #000;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s;
+  font-size: 1rem;
+
+  &:hover {
+    background-color: rgb(108, 202, 45);
+    font-weight: bold;
+    color: #fff;
+  }
 `;
 
 const Footer = forwardRef((props, ref) => {
@@ -138,23 +204,38 @@ const Footer = forwardRef((props, ref) => {
           GitHub
         </FooterItem>
 
-        <FooterItem
-          href="mailto:lao.tech.software@gmail.com"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Email
-        </FooterItem>
+        <FormContainer name="contacto" method="POST" data-netlify="true">
+          <input type="hidden" name="form-name" value="contacto" />
+          <p hidden>
+            <label>
+              No llenar este campo: <Input name="bot-field" />
+            </label>
+          </p>
 
-        <FooterItem
-          href="../../public/Lautaro Larragueta Full Stack.pdf"
-          download="Larragueta Lautaro"
-        >
-          Descargar CV
-        </FooterItem>
+          <Label>
+            Nombre:
+            <Input type="text" name="name" required />
+          </Label>
+
+          <Label>
+            Email:
+            <Input type="email" name="email" required />
+          </Label>
+
+          <Label>
+            Mensaje:
+            <TextArea name="message" rows="4" required />
+          </Label>
+
+          <SubmitButton type="submit">Enviar</SubmitButton>
+        </FormContainer>
       </FooterSection>
-      <FooterText>Design By Lao</FooterText>
-      <FooterText>Email</FooterText>
+      <FooterText>
+        © 2025 - Lao Larragueta. Todos los derechos reservados.
+        <br />
+        Las imágenes son propiedad de sus respectivos autores y se emplean con
+        fines ilustrativos.
+      </FooterText>
     </FooterContainer>
   );
 });

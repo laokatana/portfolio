@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { Children } from 'react';
 import styled from 'styled-components';
+import usePageLoaded from '../hooks/Loaded';
 
 // Definimos los estilos con styled-components
 
@@ -56,12 +57,19 @@ const LoadingText = styled.p`
   }
 `;
 
-const Loader = () => {
-  return (
-    <Container>
-      <LoadingText>Loading...</LoadingText>
-    </Container>
-  );
+const Loader = ({ children }) => {
+  const isPageLoaded = usePageLoaded();
+
+  if (!isPageLoaded) {
+    // Si la página ya está cargada, no mostramos nada
+    return (
+      <Container>
+        <LoadingText>Loading...</LoadingText>
+      </Container>
+    );
+  }
+
+  return <>{children}</>;
 };
 
 export default Loader;
