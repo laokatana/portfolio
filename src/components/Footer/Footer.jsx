@@ -2,7 +2,6 @@ import React from 'react';
 import styled, { keyframes } from 'styled-components';
 import { forwardRef } from 'react';
 
-// Animación mezcladito2 (para el título)
 const mezcladito2 = keyframes`
   0%, 100% {
     opacity: 1;
@@ -15,19 +14,17 @@ const mezcladito2 = keyframes`
 `;
 
 const FooterContainer = styled.div`
-  height: 100vdh;
+  height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-
   background-image: url('/footer4.gif');
   background-position: center bottom;
   background-size: 100%;
   background-repeat: no-repeat;
   background-attachment: fixed;
   padding: 0 10px;
-
   box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.3);
 
   @media (max-width: 770px) {
