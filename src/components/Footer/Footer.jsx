@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled, { keyframes } from 'styled-components';
 import { forwardRef } from 'react';
 
@@ -180,6 +180,47 @@ const SubmitButton = styled.button`
 `;
 
 const Footer = forwardRef((props, ref) => {
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    message: '',
+    'bot-field': '',
+  });
+  const [success, setSuccess] = useState(false);
+
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const encode = (data) =>
+    Object.keys(data)
+      .map(
+        (key) => encodeURIComponent(key) + '=' + encodeURIComponent(data[key])
+      )
+      .join('&');
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    if (formData['bot-field']) return; // bot atrapado
+
+    try {
+      await fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: encode({
+          'form-name': 'contacto',
+          ...formData,
+        }),
+      });
+
+      setSuccess(true);
+      setFormData({ name: '', email: '', message: '', 'bot-field': '' });
+    } catch (error) {
+      console.error('Error al enviar:', error);
+    }
+  };
+
   return (
     <FooterContainer>
       <FooterSection ref={ref}>
@@ -201,31 +242,62 @@ const Footer = forwardRef((props, ref) => {
           GitHub
         </FooterItem>
 
-        <FormContainer name="contacto" method="POST" data-netlify="true">
-          <input type="hidden" name="form-name" value="contacto" />
-          <p hidden>
-            <label>
-              No llenar este campo: <Input name="bot-field" />
-            </label>
+        {success ? (
+          <p style={{ color: 'lightgreen', fontSize: '1.2rem' }}>
+            ¡Gracias por tu mensaje!
           </p>
+        ) : (
+          <FormContainer
+            name="contacto"
+            method="POST"
+            data-netlify="true"
+            data-netlify-honeypot="bot-field"
+            onSubmit={handleSubmit}
+          >
+            <input type="hidden" name="form-name" value="contacto" />
+            <p hidden>
+              <label>
+                No llenar este campo:{' '}
+                <Input name="bot-field" onChange={handleChange} />
+              </label>
+            </p>
 
-          <Label>
-            Nombre:
-            <Input type="text" name="name" required />
-          </Label>
+            <Label>
+              Nombre:
+              <Input
+                type="text"
+                name="name"
+                value={formData.name}
+                onChange={handleChange}
+                required
+              />
+            </Label>
 
-          <Label>
-            Email:
-            <Input type="email" name="email" required />
-          </Label>
+            <Label>
+              Email:
+              <Input
+                type="email"
+                name="email"
+                value={formData.email}
+                onChange={handleChange}
+                required
+              />
+            </Label>
 
-          <Label>
-            Mensaje:
-            <TextArea name="message" rows="4" required />
-          </Label>
+            <Label>
+              Mensaje:
+              <TextArea
+                name="message"
+                rows="4"
+                value={formData.message}
+                onChange={handleChange}
+                required
+              />
+            </Label>
 
-          <SubmitButton type="submit">Enviar</SubmitButton>
-        </FormContainer>
+            <SubmitButton type="submit">Enviar</SubmitButton>
+          </FormContainer>
+        )}
       </FooterSection>
       <FooterText>
         © 2025 - Lao Larragueta. Todos los derechos reservados.
