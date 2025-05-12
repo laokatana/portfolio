@@ -294,8 +294,9 @@ const Footer = forwardRef((props, ref) => {
         )}
       </FooterSection>
       <FooterText>
-        © 2025 - Lao Larragueta. Diseño y desarrollo by Lao.
+        © 2025 - Lao Larragueta.
         <br />
+        Email:lao.tech.software@gmail.com
       </FooterText>
     </FooterContainer>
   );
