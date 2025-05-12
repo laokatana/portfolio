@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import emailjs from '@emailjs/browser';
 import styled, { keyframes } from 'styled-components';
 import { forwardRef } from 'react';
 
