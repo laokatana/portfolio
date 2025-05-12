@@ -209,7 +209,7 @@ const Footer = forwardRef((props, ref) => {
           email: formData.email,
           message: formData.message,
         },
-        'tu_public_key' // <- Reemplazá con tu Public Key
+        'L5P5SpAFIUETYI3h3' // <- Reemplazá con tu Public Key
       )
       .then(() => {
         setSuccess(true);
