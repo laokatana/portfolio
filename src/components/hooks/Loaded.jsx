@@ -6,10 +6,10 @@ const usePageLoaded = () => {
 
   useEffect(() => {
     const handleLoad = () => {
-      // Esperar 3 segundos después de que la página se haya cargado
+      
       setTimeout(() => {
         setIsPageLoaded(true);
-      }, 3000); // 3000ms = 3 segundos
+      }, 3000); 
     };
 
     if (document.readyState === 'complete') {

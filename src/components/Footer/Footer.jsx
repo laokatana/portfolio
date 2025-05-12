@@ -19,7 +19,7 @@ const FooterContainer = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-image: url('/footer4.gif');
+
   background-position: center bottom;
   background-size: 100%;
   background-repeat: no-repeat;
@@ -73,15 +73,12 @@ const FooterItem = styled.a`
   color: #e2d9e4;
   text-decoration: none;
   position: relative;
-  transition: all 0.5s ease-in-out;
-
   &:hover {
-    transform: scale(1.1);
     color: #fcd34d;
-    border: 1px solid rgba(190, 138, 27, 0.51);
     text-shadow: 1px 1px 1px #da2323;
     border-radius: 5px;
     padding: 0.1rem;
+    border: 1px solid rgba(190, 138, 27, 0.51);
   }
 `;
 
@@ -111,8 +108,9 @@ const FormContainer = styled.form`
   padding: 2rem;
   width: 100%;
   max-width: 450px;
-  background-color: rgba(0, 0, 0, 0.65);
+  background-color: transparent;
   border-radius: 10px;
+  border: 1px solid rgba(190, 138, 27, 0.51);
   color: #f5f5f5;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
 
@@ -131,7 +129,9 @@ const Label = styled.label`
   flex-direction: column;
   font-size: 1.2rem;
   gap: 0.5rem;
-  @media (max-width: 768px) {
+  color: #fcd34d;
+  text-shadow: 1px 1px 1px #da2323;
+  F @media (max-width: 768px) {
     font-size: 0.9rem;
   }
   @media (max-width: 480px) {
@@ -143,9 +143,10 @@ const Input = styled.input`
   padding: 0.75rem;
   border-radius: 5px;
   border: none;
-  background-color: #1f1f1f;
+  background-color: transparent;
   color: #fff;
   font-size: 1rem;
+  border: 1px solid rgba(190, 138, 27, 0.51);
 
   @media (max-width: 768px) {
     font-size: 0.9rem;
@@ -156,24 +157,25 @@ const TextArea = styled.textarea`
   padding: 0.75rem;
   border-radius: 5px;
   border: none;
-  background-color: #1f1f1f;
+  background-color: transparent;
+  border: 1px solid rgba(190, 138, 27, 0.51);
   color: #fff;
   font-size: 1rem;
   resize: none;
 `;
 
 const SubmitButton = styled.button`
-  padding: 0.75rem;
-  background-color: rgba(230, 200, 34, 0.91);
-  color: #000;
+  background-color: transparent;
+  color: rgb(212, 209, 200);
   border: none;
   border-radius: 5px;
   cursor: pointer;
   transition: background 0.3s;
-  font-size: 1rem;
+  font-size: 1.5rem;
+  border: 1px solid rgba(190, 138, 27, 0.51);
 
   &:hover {
-    background-color: rgb(108, 202, 45);
+    background-color: rgba(224, 174, 11, 0.91);
     font-weight: bold;
     color: #fff;
   }
@@ -192,33 +194,29 @@ const Footer = forwardRef((props, ref) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const encode = (data) =>
-    Object.keys(data)
-      .map(
-        (key) => encodeURIComponent(key) + '=' + encodeURIComponent(data[key])
-      )
-      .join('&');
-
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
 
     if (formData['bot-field']) return; // bot atrapado
 
-    try {
-      await fetch('/', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: encode({
-          'form-name': 'contacto',
-          ...formData,
-        }),
+    emailjs
+      .send(
+        'service_av3azkf', // <- Reemplazá con tu Service ID
+        'template_otqfcxo', // <- Reemplazá con tu Template ID
+        {
+          name: formData.name,
+          email: formData.email,
+          message: formData.message,
+        },
+        'tu_public_key' // <- Reemplazá con tu Public Key
+      )
+      .then(() => {
+        setSuccess(true);
+        setFormData({ name: '', email: '', message: '', 'bot-field': '' });
+      })
+      .catch((err) => {
+        console.error('Fallo al enviar email:', err);
       });
-
-      setSuccess(true);
-      setFormData({ name: '', email: '', message: '', 'bot-field': '' });
-    } catch (error) {
-      console.error('Error al enviar:', error);
-    }
   };
 
   return (
@@ -247,14 +245,7 @@ const Footer = forwardRef((props, ref) => {
             ¡Gracias por tu mensaje!
           </p>
         ) : (
-          <FormContainer
-            name="contacto"
-            method="POST"
-            data-netlify="true"
-            data-netlify-honeypot="bot-field"
-            onSubmit={handleSubmit}
-          >
-            <input type="hidden" name="form-name" value="contacto" />
+          <FormContainer onSubmit={handleSubmit}>
             <p hidden>
               <label>
                 No llenar este campo:{' '}
@@ -296,14 +287,14 @@ const Footer = forwardRef((props, ref) => {
             </Label>
 
             <SubmitButton type="submit">Enviar</SubmitButton>
+
+            {success && <p>Mensaje enviado correctamente 🎉</p>}
           </FormContainer>
         )}
       </FooterSection>
       <FooterText>
-        © 2025 - Lao Larragueta. Todos los derechos reservados.
+        © 2025 - Lao Larragueta. Diseño y desarrollo by Lao.
         <br />
-        Las imágenes son propiedad de sus respectivos autores y se emplean con
-        fines ilustrativos.
       </FooterText>
     </FooterContainer>
   );
