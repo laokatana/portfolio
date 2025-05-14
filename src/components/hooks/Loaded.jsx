@@ -1,26 +1,31 @@
-/* eslint-disable prettier/prettier */
 import { useEffect, useState } from 'react';
 
-const usePageLoaded = () => {
-  const [isPageLoaded, setIsPageLoaded] = useState(false);
+const usePreloadAssets = (assets = []) => {
+  const [progress, setProgress] = useState(0);
+  const [isReady, setIsReady] = useState(false);
 
   useEffect(() => {
-    const handleLoad = () => {
-      
-      setTimeout(() => {
-        setIsPageLoaded(true);
-      }, 3000); 
+    let loaded = 0;
+
+    const updateProgress = () => {
+      loaded += 1;
+      setProgress(Math.round((loaded / assets.length) * 100));
+      if (loaded === assets.length) {
+        setTimeout(() => setIsReady(true), 3000); // Pequeño delay opcional
+      }
     };
 
-    if (document.readyState === 'complete') {
-      handleLoad();
-    } else {
-      window.addEventListener('load', handleLoad);
-      return () => window.removeEventListener('load', handleLoad);
-    }
-  }, []);
+    assets.forEach((src) => {
+      const img = new Image();
+      img.src = src;
+      img.onload = updateProgress;
+      img.onerror = updateProgress; // Para que no se trabe si una imagen falla
+    });
 
-  return isPageLoaded;
+    if (assets.length === 0) setIsReady(true);
+  }, [assets]);
+
+  return { isReady, progress };
 };
 
-export default usePageLoaded;
+export default usePreloadAssets;
