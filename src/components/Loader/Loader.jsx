@@ -6,7 +6,7 @@ import {
   ProgressBarContainer,
   ProgressBar,
 } from './Loader.styled';
-import usePreloadAssets from '../hooks/loaded';
+import usePreloadAssets from '../hooks/Loaded';
 
 const Loader = ({ children }) => {
   // Archivos que queremos precargar
