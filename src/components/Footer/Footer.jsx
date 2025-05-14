@@ -13,7 +13,7 @@ import {
   SubmitButton,
   Input,
   mezcladito2,
-} from './Footer.Styled';
+} from './Footer.styled';
 
 const Footer = forwardRef((props, ref) => {
   const { formData, success, handleChange, handleSubmit } = useContactForm();
