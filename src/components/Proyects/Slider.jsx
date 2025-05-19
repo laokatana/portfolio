@@ -1,5 +1,5 @@
 // components/Projects/Slider.jsx
-import React, { useRef } from 'react';
+import React, { useRef, useEffect } from 'react';
 import {
   ContenedorPrincipal,
   ContenedorSlidehshow,
@@ -43,6 +43,37 @@ const Slider = ({ slides }) => {
       }, 30);
     }
   };
+
+  useEffect(() => {
+    // Iniciamos el intervalo que avanza el slideshow automáticamente cada 2 segundos
+    let intervalo = setInterval(() => {
+      next();
+    }, 5000);
+
+    // Función para pausar el slideshow
+    const pausarSlideshow = () => {
+      clearInterval(intervalo);
+    };
+
+    // Función para reanudar el slideshow con un intervalo más lento (5 segundos)
+    const reanudarSlideshow = () => {
+      intervalo = setInterval(() => {
+        next();
+      }, 5000);
+    };
+
+    // Agregamos los listeners al elemento del slideshow
+    const slideshowEl = slideshow.current;
+    slideshowEl.addEventListener('mouseenter', pausarSlideshow);
+    slideshowEl.addEventListener('mouseleave', reanudarSlideshow);
+
+    // Cleanup: eliminamos el intervalo y los listeners al desmontar el componente
+    return () => {
+      clearInterval(intervalo);
+      slideshowEl.removeEventListener('mouseenter', pausarSlideshow);
+      slideshowEl.removeEventListener('mouseleave', reanudarSlideshow);
+    };
+  }, []);
 
   return (
     <ContenedorPrincipal>

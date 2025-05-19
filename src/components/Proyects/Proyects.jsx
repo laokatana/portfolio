@@ -49,16 +49,28 @@ const ProjectsSection = forwardRef((props, ref) => {
       <Description>
         {/* Descripción tuya */}
         <p>
-          En este espacio comparto proyectos desarrollados a lo largo de mi
-          aprendizaje, tanto en cursos como IntegrarTec (MERN Stack) y el
-          programa ONE de Alura, como en proyectos autodidactas y experiencias
-          reales. Las tecnologías utilizadas incluyen:
+          A lo largo de mi formación y experiencia autodidacta, he desarrollado
+          proyectos que reflejan mi dominio en distintas tecnologías y enfoques.
+          Entre ellos destacan: <br /> API de Autores Proyecto backend
+          desarrollado con Node.js, Express y MongoDB. Implementa una API REST
+          para gestión de autores con operaciones CRUD, validaciones y
+          arquitectura modular orientada a buenas prácticas.
           <br />
-          Frontend: HTML, CSS, React, JavaScript.
+          Cotizador de Criptomonedas App desarrollada con React y Styled
+          Components . Permite consultar en tiempo real el valor de distintas
+          criptomonedas, integrando consumo de API externa, manejo de estado y
+          componentes reutilizables. <br />
+          Anotador de Tareas Aplicación simple hecha con HTML, CSS y JavaScript
+          puro, enfocada en la gestión básica de tareas. Nació durante mis
+          primeros pasos en el desarrollo y fue clave para afianzar lógica de
+          programación, manipulación del DOM y almacenamiento local. <br />
+          Estoy en constante búsqueda de nuevos desafíos y oportunidades para
+          aplicar mis habilidades y seguir aprendiendo. Si deseas conocer más
+          sobre mis proyectos o discutir una posible colaboración, no dudes en
+          contactarme. Estoy aquí para ayudarte a llevar tus ideas al siguiente
+          nivel. <br />
+          ¡Gracias por visitar mi portfolio!
           <br />
-          Backend: Node.js, Express, TypeScript.
-          <br />
-          Base de datos: MongoDB (no relacional), SQL (relacionales).
         </p>
       </Description>
       <Slider slides={slideItems} />

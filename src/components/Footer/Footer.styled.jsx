@@ -42,9 +42,9 @@ export const FooterSection = styled.section`
   height: 100vh;
   align-items: center;
   justify-content: center;
-  gap: 2rem;
+  gap: 1rem;
   font-size: 1.5rem;
-  padding: 2rem 10px;
+  padding: 1rem 5px;
 
   @media (max-width: 768px) {
     height: auto;
@@ -76,7 +76,7 @@ export const FooterItem = styled.a`
     color: #fcd34d;
     text-shadow: 1px 1px 1px #da2323;
     border-radius: 5px;
-    padding: 0.1rem;
+    padding: 0.2rem;
     border: 1px solid rgba(190, 138, 27, 0.51);
     transition: all 0.3s ease-in-out;
   }

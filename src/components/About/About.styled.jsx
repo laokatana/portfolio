@@ -42,11 +42,11 @@ export const AboutContainer = styled.div`
 export const ButtonSection = styled.section`
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
-  gap: 1.5rem;
+  flex-direction: row;
+  space-between: 2rem;
   margin-top: 6rem;
 
-  @media (max-width: 768px) {
+  @media (min-width: 768px) and (max-width: 985px) {
     flex-direction: column;
     align-items: center;
     padding: 0 1rem;

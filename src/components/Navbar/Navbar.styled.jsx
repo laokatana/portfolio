@@ -62,7 +62,7 @@ export const Menu = styled.div`
     width 0.3s ease-in-out;
   z-index: 100;
 
-  @media (min-width: 770px) {
+  @media (min-width: 770px) and (min-width: 985px) {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
