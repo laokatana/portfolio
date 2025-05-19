@@ -7,14 +7,16 @@ Este es mi portafolio personal, desarrollado con React y Vite, que muestra mis p
 EN:
 This is my personal portfolio, developed with React and Vite, showcasing my web development projects and skills. I utilized useState, useRef, and useEffect for UI logic, and styled-components for styling.
 
+
+
 🛠️ Tecnologías / Technologies
+
 Framework: React + Vite
-
 Estilos / Styling: styled-components
-
 Hooks de React / React Hooks: useState, useRef, useEffect
-
 Despliegue / Deployment: Netlify
+
+
 
 🚀 Instalación / Installation
 ES:
