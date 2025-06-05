@@ -68,6 +68,7 @@ export const AboutButton = styled.button`
   font-size: 1.25rem;
   margin: 2.5rem;
   background-color: transparent;
+  backdrop-filter: blur(10px);
   color: #fcd34d;
   border: 1px solid rgba(190, 138, 27, 0.51);
   border-radius: 5px;
@@ -95,7 +96,7 @@ export const AboutButton = styled.button`
 export const InfoBox = styled.div`
   max-height: ${({ $isActive }) => ($isActive ? '500px' : '0px')};
   overflow: hidden;
-  transition: max-height 0.5s ease; // <<< ¡Animamos el cambio de altura!
+  transition: max-height 0.5s ease;
   width: 100%;
   text-align: center;
 
@@ -105,7 +106,8 @@ export const InfoBox = styled.div`
     transform: ${({ $isActive }) =>
       $isActive ? 'translateY(0)' : 'translateY(-10px)'};
     transition: all 0.4s ease;
-    background-color: rgba(190, 138, 27, 0.1);
+    backdrop-filter: blur(10px);
+    background-color: rgba(10, 7, 0, 0.1);
     border: 1px solid rgba(190, 138, 27, 0.51);
     border-radius: 8px;
     color: #eaecee;

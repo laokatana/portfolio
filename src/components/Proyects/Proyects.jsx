@@ -49,31 +49,28 @@ const ProjectsSection = forwardRef((props, ref) => {
       <Description>
         {/* Descripción tuya */}
         <p>
-          A lo largo de mi formación y experiencia autodidacta, he desarrollado
-          proyectos que reflejan mi dominio en distintas tecnologías y enfoques.
-          Entre ellos destacan: <br /> API de Autores Proyecto backend
-          desarrollado con Node.js, Express y MongoDB. Implementa una API REST
-          para gestión de autores con operaciones CRUD, validaciones y
-          arquitectura modular orientada a buenas prácticas.
-          <br />
-          Cotizador de Criptomonedas App desarrollada con React y Styled
-          Components . Permite consultar en tiempo real el valor de distintas
-          criptomonedas, integrando consumo de API externa, manejo de estado y
-          componentes reutilizables. <br />
-          Anotador de Tareas Aplicación simple hecha con HTML, CSS y JavaScript
-          puro, enfocada en la gestión básica de tareas. Nació durante mis
-          primeros pasos en el desarrollo y fue clave para afianzar lógica de
-          programación, manipulación del DOM y almacenamiento local. <br />
-          Estoy en constante búsqueda de nuevos desafíos y oportunidades para
-          aplicar mis habilidades y seguir aprendiendo. Si deseas conocer más
-          sobre mis proyectos o discutir una posible colaboración, no dudes en
-          contactarme. Estoy aquí para ayudarte a llevar tus ideas al siguiente
-          nivel. <br />
-          ¡Gracias por visitar mi portfolio!
+          A lo largo de mi formación autodidacta he trabajado en proyectos
+          personales con el objetivo de afianzar conceptos clave del desarrollo
+          web, tanto en frontend como en backend. Estas experiencias me
+          permitieron aplicar principios fundamentales como la lógica de
+          programación, la manipulación eficiente del DOM, el consumo de APIs
+          externas, el manejo de estado, y la estructuración de arquitecturas
+          escalables y mantenibles.
           <br />
         </p>
       </Description>
       <Slider slides={slideItems} />
+      <Description>
+        <p>
+          Cada proyecto fue una oportunidad para aplicar lo aprendido, resolver
+          problemas reales y mejorar mi forma de pensar el código. Más allá de
+          las herramientas, siempre busqué crear soluciones claras, útiles y
+          reutilizables. Estoy abierto a nuevos desafíos, aprender en equipo y
+          aportar lo que sé. Si tenés una idea, charlamos.
+          <br />
+          ¡Gracias por pasar por mi portfolio!
+        </p>
+      </Description>
     </SectionContainer>
   );
 });

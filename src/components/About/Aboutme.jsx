@@ -15,7 +15,7 @@ const infoContent = {
     'Manejo tecnologías como JavaScript, TypeScript, HTML, CSS, React, Node.js y Express. Trabajo con bases de datos relacionales (SQL) y no relacionales (MongoDB), y utilizo herramientas como Git para control de versiones. Tengo conocimientos en redes y experiencia aplicando buenas prácticas de desarrollo tanto en frontend como backend.',
 
   SOBRE_MI:
-    'Hola, soy Lao. Soy autodidacta, curioso y comprometido con la mejora constante. Como desarrollador, combino habilidades técnicas y blandas: buena comunicación, responsabilidad, adaptabilidad y enfoque práctico. Me gusta crear soluciones útiles, escribir código limpio y aplicar buenas prácticas. He complementado capacitaciones (ONE – Alura, IntegrarTec – MERN Stack) con proyectos reales y personales. Actualmente desarrollo nuevos proyectos que pronto estarán disponibles en este portfolio.',
+    'Hola, soy Lao. Soy autodidacta, curioso y comprometido con la mejora constante. Como desarrollador, combino habilidades técnicas y blandas: buena comunicación, responsabilidad, adaptabilidad y enfoque práctico. Me gusta crear soluciones útiles, escribir código limpio y aplicar buenas prácticas. He complementado capacitaciones con proyectos reales y personales. Actualmente desarrollo nuevos proyectos que pronto estarán disponibles en este portfolio.',
 
   DESARROLLEMOS:
     'Si te interesó mi trabajo y creés que podemos colaborar en algún proyecto, no dudes en contactarme. Abajo vas a encontrar todos mis medios de contacto. Estoy abierto a nuevas oportunidades, propuestas y desafíos que me permitan seguir creciendo como desarrollador y aportar soluciones reales.',
