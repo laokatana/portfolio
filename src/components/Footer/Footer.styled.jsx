@@ -13,26 +13,34 @@ export const mezcladito2 = keyframes`
 `;
 
 export const FooterContainer = styled.div`
-  min-height: 100vh;
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-
-  background-position: center bottom;
-  background-size: 100%;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
   padding: 0 10px;
-  box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.3);
+  padding-bottom: 2rem;
+  min-height: 100vh;
 
-  @media (max-width: 770px) {
-    background-size: 100%;
-    height: 100vh;
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url('/sobremi.gif');
+    background-repeat: no-repeat;
+    background-position: center bottom;
+    background-size: cover;
+    z-index: 0;
   }
 
-  @media (max-width: 480px) {
-    background-size: 350%;
+  > * {
+    position: relative;
+    z-index: 1;
+  }
+
+  @media (max-width: 770px) {
+    min-height: auto;
+    padding-bottom: 5rem;
   }
 `;
 
@@ -87,7 +95,7 @@ export const FooterText = styled.p`
   text-align: center;
   font-size: 1.25rem;
   padding: 0 10px;
-  margin-bottom: 2rem;
+  margin-top: 5rem;
   animation: ${mezcladito2} 2s ease-in-out infinite;
   animation-delay: 0.5s;
   text-shadow: 1px 1px 1px rgb(231, 216, 216);
@@ -95,6 +103,7 @@ export const FooterText = styled.p`
   @media (max-width: 768px) {
     font-size: 1.1rem;
   }
+
   @media (max-width: 480px) {
     font-size: 1rem;
   }

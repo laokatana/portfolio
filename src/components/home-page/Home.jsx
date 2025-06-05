@@ -7,7 +7,7 @@ import {
   SectionHome,
   Title,
   TextHome,
-} from './Home.styled';
+} from './Home.styled.jsx';
 
 const Home = forwardRef((props, ref) => {
   return (
