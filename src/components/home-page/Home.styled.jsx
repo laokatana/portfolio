@@ -43,6 +43,7 @@ export const Background = styled.div`
   background-size: cover;
   background-position: center bottom;
   background-repeat: no-repeat;
+  background-attachment: fixed;
   z-index: -1;
 `;
 
@@ -66,7 +67,6 @@ export const Title = styled.p`
   font-weight: bold;
   color: rgba(201, 185, 42, 0.91);
   text-shadow: 3px 3px 3px #da2323;
-  margin: 0.5rem 0;
 
   @media (min-width: 768px) {
     font-size: 3rem;

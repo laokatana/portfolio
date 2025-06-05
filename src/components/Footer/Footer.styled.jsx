@@ -29,6 +29,7 @@ export const FooterContainer = styled.div`
     background-image: url('/sobremi.gif');
     background-repeat: no-repeat;
     background-position: center bottom;
+    background-attachment: fixed;
     background-size: cover;
     z-index: 0;
   }
@@ -40,7 +41,6 @@ export const FooterContainer = styled.div`
 
   @media (max-width: 770px) {
     min-height: auto;
-    padding-bottom: 5rem;
   }
 `;
 
