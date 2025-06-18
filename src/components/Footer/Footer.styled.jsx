@@ -212,7 +212,7 @@ export const SubmitButton = styled.button`
 `;
 
 export const StickyFooter = styled.footer`
-  position: fixed;
+  position: absolute;
   bottom: 0;
   width: 100%;
   background: transparent;
