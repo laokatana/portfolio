@@ -38,7 +38,7 @@ export const Background = styled.div`
   top: 0;
   left: 0;
   right: 0;
-  bottom: 20px;
+  bottom: 0;
   background-image: url('/sobremi.gif');
   background-size: cover;
   background-position: bottom;
