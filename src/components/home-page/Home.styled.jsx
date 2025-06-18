@@ -38,7 +38,7 @@ export const Background = styled.div`
   top: 0;
   left: 0;
   right: 0;
-  bottom: 0;
+  bottom: 20px;
   background-image: url('/sobremi.gif');
   background-size: cover;
   background-position: bottom;
@@ -50,7 +50,6 @@ export const Background = styled.div`
 export const SectionHome = styled.section`
   width: 100%;
   text-align: center;
-  border: 1px solid rgba(201, 185, 42, 0.91);
   margin-bottom: 7rem;
 
   @media (min-width: 768px) {
