@@ -53,7 +53,7 @@ export const Menu = styled.div`
   position: fixed;
   top: 0;
   left: 0;
-  height: 25vh;
+  height: 30vh;
   width: 100%;
   padding: 4rem 2rem;
   transform: ${({ open }) => (open ? 'translateX(0)' : 'translateX(-100%)')};

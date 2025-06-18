@@ -49,15 +49,16 @@ export const Background = styled.div`
 // Contenido centrado y responsivo
 export const SectionHome = styled.section`
   width: 100%;
-  padding: 6rem 1rem 4rem;
   text-align: center;
+  border: 1px solid rgba(201, 185, 42, 0.91);
+  margin-bottom: 7rem;
 
   @media (min-width: 768px) {
-    padding-top: 8rem;
+    margin-bottom: 6rem;
   }
 
   @media (min-width: 1024px) {
-    padding-top: 10rem;
+    margin-bottom: 8rem;
   }
 `;
 
