@@ -41,7 +41,7 @@ export const Background = styled.div`
   bottom: 0;
   background-image: url('/sobremi.gif');
   background-size: cover;
-  background-position: center bottom;
+  background-position: center;
   background-repeat: no-repeat;
   z-index: -1;
 `;
