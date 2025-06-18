@@ -9,6 +9,7 @@ const usePreloadAssets = (assets = []) => {
 
     const updateProgress = () => {
       loaded += 1;
+
       setProgress(Math.round((loaded / assets.length) * 100));
       if (loaded === assets.length) {
         setTimeout(() => setIsReady(true), 3000); // Pequeño delay opcional

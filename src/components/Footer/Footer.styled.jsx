@@ -18,9 +18,8 @@ export const FooterContainer = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 0 10px;
-  padding-bottom: 2rem;
-  min-height: 100vh;
+  padding-bottom: 10rem;
+  height: 100%;
 
   &::before {
     content: '';
@@ -29,8 +28,8 @@ export const FooterContainer = styled.div`
     background-image: url('/sobremi.gif');
     background-repeat: no-repeat;
     background-position: center bottom;
-    background-attachment: fixed;
     background-size: cover;
+    background-attachment: fixed;
     z-index: 0;
   }
 
@@ -66,13 +65,14 @@ export const FooterTitle = styled.p`
   color: rgba(201, 185, 42, 0.91);
   text-shadow: 1px 1px 1px #da2323;
   text-align: center;
+  margin-top: 2rem;
 
   @media (max-width: 768px) {
     font-size: 2.25rem;
   }
 
   @media (max-width: 480px) {
-    font-size: 1.8rem;
+    font-size: 2.8rem;
   }
 `;
 
@@ -90,15 +90,36 @@ export const FooterItem = styled.a`
   }
 `;
 
-export const FooterText = styled.p`
+export const FooterLinksContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    align-items: center;
+  }
+`;
+
+export const FooterText = styled.div`
   color: rgb(245, 240, 247);
   text-align: center;
   font-size: 1.25rem;
   padding: 0 10px;
-  margin-top: 5rem;
+  margin-top: 3rem;
   animation: ${mezcladito2} 2s ease-in-out infinite;
   animation-delay: 0.5s;
   text-shadow: 1px 1px 1px rgb(231, 216, 216);
+
+  & > div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 0.5rem;
+  }
 
   @media (max-width: 768px) {
     font-size: 1.1rem;
@@ -187,5 +208,63 @@ export const SubmitButton = styled.button`
     background-color: rgba(224, 174, 11, 0.91);
     font-weight: bold;
     color: #fff;
+  }
+`;
+
+export const StickyFooter = styled.footer`
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background: transparent;
+  color: #fcd34d;
+  padding: 10px 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  font-size: 12px;
+  z-index: 999;
+
+  svg {
+    margin-right: 6px;
+    font-size: 14px;
+  }
+
+  @media (min-width: 768px) {
+    flex-direction: column;
+    justify-content: space-around;
+    font-size: 14px;
+
+    svg {
+      font-size: 16px;
+    }
+  }
+`;
+
+export const FooterTextBlock = styled.div`
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+`;
+
+export const FooterLinks = styled.div`
+  display: flex;
+  gap: 12px;
+
+  a {
+    color: white;
+    font-size: 18px;
+
+    &:hover {
+      color: #ffa500;
+    }
+  }
+
+  @media (min-width: 768px) {
+    gap: 16px;
+
+    a {
+      font-size: 20px;
+    }
   }
 `;

@@ -46,23 +46,41 @@ export const Overlay = styled.div`
 `;
 
 export const Menu = styled.div`
+  // Estilos base (menú cerrado en mobile)
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   position: fixed;
   top: 0;
   left: 0;
-  height: 30vh;
-  width: ${({ open }) => (open ? '100%' : '70%')};
-  background: transparent;
+  height: 25vh;
+  width: 100%;
   padding: 4rem 2rem;
-  transform: ${({ open }) => (open ? 'translateX(0%)' : 'translateX(-100%)')};
-  transition:
-    transform 0.3s ease-in-out,
-    width 0.3s ease-in-out;
+  transform: ${({ open }) => (open ? 'translateX(0)' : 'translateX(-100%)')};
   z-index: 100;
+  overflow: hidden;
 
-  @media (min-width: 770px) and (min-width: 985px) {
+  // Transiciones separadas para mayor control
+  transition:
+    transform 0.4s cubic-bezier(0.22, 0.61, 0.36, 1),
+    backdrop-filter 0.3s ease-out,
+    background-color 0.3s ease-out;
+
+  // Estado inicial (cerrado)
+  backdrop-filter: blur(0);
+  background-color: rgba(3, 3, 3, 0);
+
+  // Estado abierto
+  ${({ open }) =>
+    open &&
+    `
+    backdrop-filter: blur(1px);
+    background-color: rgba(3, 3, 3, 0.8);
+    font-size: 1.2rem;
+  `}
+
+  // Estilos para desktop
+  @media (min-width: 770px) {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
@@ -72,8 +90,10 @@ export const Menu = styled.div`
     position: static;
     transform: none;
     padding: 0;
-    backdrop-filter: none;
     pointer-events: auto;
+    background: transparent;
+    backdrop-filter: none !important;
+    transition: none !important;
   }
 `;
 

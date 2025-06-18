@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import styled, { keyframes } from 'styled-components';
 import { forwardRef } from 'react';
 import {
   AboutContainer,
@@ -15,7 +14,12 @@ const infoContent = {
     'Manejo tecnologías como JavaScript, TypeScript, HTML, CSS, React, Node.js y Express. Trabajo con bases de datos relacionales (SQL) y no relacionales (MongoDB), y utilizo herramientas como Git para control de versiones. Tengo conocimientos en redes y experiencia aplicando buenas prácticas de desarrollo tanto en frontend como backend.',
 
   SOBRE_MI:
-    'Hola, soy Lao. Soy autodidacta, curioso y comprometido con la mejora constante. Como desarrollador, combino habilidades técnicas y blandas: buena comunicación, responsabilidad, adaptabilidad y enfoque práctico. Me gusta crear soluciones útiles, escribir código limpio y aplicar buenas prácticas. He complementado capacitaciones con proyectos reales y personales. Actualmente desarrollo nuevos proyectos que pronto estarán disponibles en este portfolio.',
+    '¡Hola! Soy Lao, un desarrollador apasionado por construir soluciones con código. ' +
+    'Más allá de las tecnologías, creo en el trabajo bien hecho: limpio, escalable y con foco en el usuario. ' +
+    'Soy autodidacta por convicción, curioso por naturaleza y siempre estoy aprendiendo algo nuevo. ' +
+    'Disfruto tanto de resolver problemas técnicos complejos como de trabajar en equipo, comunicándome de forma clara y empática. ' +
+    'Cuando no estoy programando, probablemente esté explorando nuevas herramientas, optimizando proyectos o colaborando en ideas innovadoras. ' +
+    'Mi meta es seguir creciendo mientras aporto valor real.',
 
   DESARROLLEMOS:
     'Si te interesó mi trabajo y creés que podemos colaborar en algún proyecto, no dudes en contactarme. Abajo vas a encontrar todos mis medios de contacto. Estoy abierto a nuevas oportunidades, propuestas y desafíos que me permitan seguir creciendo como desarrollador y aportar soluciones reales.',

@@ -1,4 +1,10 @@
-import React, { useState } from 'react';
+import React from 'react';
+import {
+  FaGithub,
+  FaLinkedin,
+  FaEnvelope,
+  FaRegCopyright,
+} from 'react-icons/fa';
 import useContactForm from '../hooks/useContactForm';
 import { forwardRef } from 'react';
 import {
@@ -6,13 +12,16 @@ import {
   FooterSection,
   FooterTitle,
   FooterItem,
+  FooterLinksContainer,
   FormContainer,
   Label,
   FooterText,
   TextArea,
   SubmitButton,
   Input,
-  mezcladito2,
+  StickyFooter,
+  FooterTextBlock,
+  FooterLinks,
 } from './Footer.styled';
 
 const Footer = forwardRef((props, ref) => {
@@ -23,21 +32,25 @@ const Footer = forwardRef((props, ref) => {
       <FooterSection ref={ref}>
         <FooterTitle>Contacto</FooterTitle>
 
-        <FooterItem
-          href="https://www.linkedin.com/in/lao-larragueta/"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Linkedin
-        </FooterItem>
+        <FooterLinksContainer>
+          <FooterItem
+            href="https://www.linkedin.com/in/lao-larragueta/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <FaLinkedin style={{ marginRight: '8px' }} />
+            LinkedIn
+          </FooterItem>
 
-        <FooterItem
-          href="https://github.com/laokatana"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          GitHub
-        </FooterItem>
+          <FooterItem
+            href="https://github.com/laokatana"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <FaGithub style={{ marginRight: '8px' }} />
+            GitHub
+          </FooterItem>
+        </FooterLinksContainer>
 
         {success ? (
           <p style={{ color: 'lightgreen', fontSize: '1.2rem' }}>
@@ -86,16 +99,38 @@ const Footer = forwardRef((props, ref) => {
             </Label>
 
             <SubmitButton type="submit">Enviar</SubmitButton>
-
-            {success && <p>Mensaje enviado correctamente 🎉</p>}
           </FormContainer>
         )}
       </FooterSection>
-      <FooterText>
-        © 2025 - Lao Larragueta.
-        <br />
-        Email:lao.tech.software@gmail.com
-      </FooterText>
+
+      <StickyFooter>
+        <FooterTextBlock>
+          <FaEnvelope />
+          lao.tech.software@gmail.com
+        </FooterTextBlock>
+
+        <FooterTextBlock>
+          <FaRegCopyright />
+          2025 - Lao Larragueta
+        </FooterTextBlock>
+
+        <FooterLinks>
+          <a
+            href="https://github.com/tu_usuario"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <FaGithub />
+          </a>
+          <a
+            href="https://www.linkedin.com/in/tu_usuario"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <FaLinkedin />
+          </a>
+        </FooterLinks>
+      </StickyFooter>
     </FooterContainer>
   );
 });
