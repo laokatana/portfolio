@@ -17,9 +17,9 @@ function App() {
       <div className="App" style={{ overflowX: 'hidden' }}>
         <Navbar scrollToRef={scrollToRef} refs={refs} />
         <HomePage ref={refs.homeRef} />
-        <About ref={refs.aboutMeRef} />
+        {/* <About ref={refs.aboutMeRef} />
         <Proyects ref={refs.proyectsRef} />
-        <Footer ref={refs.footerRef} />
+        <Footer ref={refs.footerRef} /> */}
       </div>
     </Loader>
   );

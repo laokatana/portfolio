@@ -16,7 +16,7 @@ const Home = forwardRef((props, ref) => {
       <SectionHome>
         <Title>LAO</Title>
         <Title>LARRAGUETA</Title>
-        <TextHome>Software Developer</TextHome>
+        <TextHome>Sitio en actualización</TextHome>
       </SectionHome>
     </ContainerHome>
   );
